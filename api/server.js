@@ -75,6 +75,12 @@ app.get('/food', (req, res) => {
 app.post('/food', (req, res) => {
     // Extract restaurant data from request body
     const { name, price, restaurantId } = req.body;
+
+     // Validate incoming data
+     if (!name || !price || !restaurantId) {
+        res.status(400).json({ error: 'Missing required fields' });
+        return;
+    }
   
     // Execute SQL query to insert new restaurant into database
     pool.query('INSERT INTO food (name, price, restaurantId) VALUES (?, ?, ?)', [name, price, restaurantId], (err, result) => {
@@ -84,8 +90,10 @@ app.post('/food', (req, res) => {
         return;
       }
       // Respond with a success message or the inserted row
-      res.status(201).json({ message: 'Restaurant added successfully', restaurant: { id: result.insertId, name, price, restaurantId } });
+      res.status(201).json({ message: 'Food added successfully', food: { id: result.insertId, name, price, restaurantId } });
     });
+
+    console.log('Received data:', req.body);
   });
 
 
