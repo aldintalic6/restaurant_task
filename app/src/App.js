@@ -1,35 +1,18 @@
 import './App.css';
 import React from 'react';
-import RestaurantList from './RestaurantList';
-import AddRestaurant from './AddRestaurant';
-import FoodList from './FoodList';
-import AddFood from './AddFood';
-import RandomFood from './RandomFood';
+import Home from './Home';
+import RestaurantsPage from './RestaurantsPage';
+
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="app-container"> 
-        <h1>Welcome to My Restaurant App</h1>
-        <div className='restraurantContainer'>
-          <div className="section">
-            <RestaurantList />
-          </div>
-          <div className="addRestaurantContainer">
-            <AddRestaurant />
-          </div>
-        </div>
-        <div className='foodContainer'>
-          <div className="section">
-            <FoodList />
-          </div>
-          <div className="addFoodContainer">
-            <AddFood />
-          </div>
-        </div>
-        <div className="randomFoodContainer">
-          <RandomFood />
-        </div>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/restaurants" element={<RestaurantsPage />} />
+      </Routes>
+    </Router>
   );
 }
 
