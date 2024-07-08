@@ -26,8 +26,8 @@ function RandomFood() {
         <div>
             <h2>Random food</h2>
             <div className="buttonContainer">
-                <button onClick={getRandomFood}>Generate</button>
-                <button onClick={() => setRandomFood(null)}>Clear</button>
+            <button onClick={getRandomFood} class="btn btn-success">Generate</button>
+                <button class="btn btn-danger" onClick={() => setRandomFood(null)}>Clear</button>
             </div>
             {randomFood && (
                 <div>

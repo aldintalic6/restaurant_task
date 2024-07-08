@@ -14,11 +14,22 @@ function FoodList() {
     return (
         <div>
             <h2>Food</h2>
-            <ul>
-                {food.map(food => (
-                    <li key={food.id}>{food.name} - {food.price} - {food.restaurantId}</li>
-                ))}
-            </ul>
+            <table className="table table-hover">
+                <thead className="thead-dark">
+                    <tr>
+                        <th>Name</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {food.map(food => (
+                        <tr>
+                            <th>{food.name}</th>
+                            <th>{food.price}</th>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
         </div>
     )
 };

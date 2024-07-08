@@ -9,24 +9,26 @@ import RandomFood from './RandomFood';
 function App() {
   return (
     <div className="app-container"> 
-      <div className="App">
         <h1>Welcome to My Restaurant App</h1>
-        <div className="section">
-          <RestaurantList />
+        <div className='restraurantContainer'>
+          <div className="section">
+            <RestaurantList />
+          </div>
+          <div className="addRestaurantContainer">
+            <AddRestaurant />
+          </div>
         </div>
-        <div className="section">
-          <AddRestaurant />
+        <div className='foodContainer'>
+          <div className="section">
+            <FoodList />
+          </div>
+          <div className="addFoodContainer">
+            <AddFood />
+          </div>
         </div>
-        <div className="section">
-          <FoodList />
-        </div>
-        <div className="section">
-          <AddFood />
-        </div>
-        <div className="section">
+        <div className="randomFoodContainer">
           <RandomFood />
         </div>
-      </div>
     </div>
   );
 }

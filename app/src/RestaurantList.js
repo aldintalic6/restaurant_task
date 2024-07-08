@@ -14,11 +14,24 @@ function RestaurantList() {
       return (
         <div>
           <h2>Restaurants</h2>
-          <ul>
-            {restaurants.map(restaurant => (
-              <li key={restaurant.id}>{restaurant.name} - {restaurant.address} - {restaurant.telephone}</li>
-            ))}
-          </ul>
+          <table className="table table-hover">
+            <thead className="thead-dark">
+              <tr>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Telephone</th>
+              </tr>
+            </thead>
+            <tbody> 
+                {restaurants.map(restaurant => (
+                  <tr>
+                    <th>{restaurant.name}</th>
+                    <th>{restaurant.address}</th>
+                    <th>{restaurant.telephone}</th>
+                  </tr>
+                ))}
+            </tbody>
+          </table>
         </div>
       );
 }

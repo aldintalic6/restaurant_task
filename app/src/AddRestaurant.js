@@ -29,13 +29,22 @@ function AddRestaurant() {
 
     return (
         <div>
-          <h2>Add Restaurant</h2>
-          <form onSubmit={handleSubmit}>
-            <input type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} required />
-            <input type="text" placeholder="Address" value={address} onChange={(e) => setAddress(e.target.value)} required />
-            <input type="text" placeholder="Telephone" value={telephone} onChange={(e) => setTelephone(e.target.value)} required />
-            <button type="submit">Add Restaurant</button>
-          </form>
+            <h2>Add Restaurant</h2>
+            <form onSubmit={handleSubmit}>  
+                <div class="form-group">
+                    <label for="nameInput">Name</label>
+                    <input type="text" class="form-control" id="inputName" placeholder="Enter name" value={name} onChange={(e) => setName(e.target.value)} required/>
+                </div>
+                <div class="form-group">
+                    <label for="addressInput">Address</label>
+                    <input type="text" class="form-control" id="inputAddress" placeholder="Enter address" value={address} onChange={(e) => setAddress(e.target.value)} required/>
+                </div>
+                <div class="form-group">
+                    <label for="telephoneInput">Telephone</label>
+                    <input type="text" class="form-control" id="inputTelephone" placeholder="Enter telephone" value={telephone} onChange={(e) => setTelephone(e.target.value)} required/>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
         </div>
       );
 
