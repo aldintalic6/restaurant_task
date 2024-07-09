@@ -59,6 +59,24 @@ app.post('/restaurants', (req, res) => {
     });
   });
 
+  // DELETE RESTAURANT
+  app.delete('/restaurants/:id', (req, res) => {
+    const { id } = req.params;
+  
+    pool.query('DELETE FROM restaurant WHERE id = ?', [id], (err, result) => {
+      if (err) {
+        console.error('Error executing query: ' + err.stack);
+        res.status(500).json({ error: 'Database error' });
+        return;
+      }
+      if (result.affectedRows === 0) {
+        res.status(404).json({ error: 'Restaurant not found' });
+        return;
+      }
+      res.status(200).json({ message: 'Restaurant deleted successfully' });
+    });
+  });
+
 // GET ALL FOOD
 app.get('/food', (req, res) => {
     pool.query('SELECT * FROM food', (err, rows) => {
