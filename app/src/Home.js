@@ -12,10 +12,10 @@ import Footer from "./components/Footer";
 const Home = () => {
     return (
       <div className="app-container"> 
-         <Header />
-          <RandomFood />
+        <Header />
+        <RandomFood />
         <Footer />
-    </div>
+      </div>
       );
 };
 

@@ -1,0 +1,20 @@
+.restaurantsContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    flex-grow: 1;
+    padding: 3rem;
+    background-color: rgb(240, 235, 235);
+}
+
+.restaurantFooter {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.buttonContainer {
+    display: flex;
+    flex-direction: row;
+}

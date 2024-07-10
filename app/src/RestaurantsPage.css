@@ -1,21 +1,5 @@
 .mainContainer {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-content: center;
-    justify-content: center;
-}
-
-.navBar {
-    width: 100%;
-}
-
-.restaurantContainer {
-    width: 50%;
-}
-
-.restaurantFooter {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    height: 100vh;
 }
