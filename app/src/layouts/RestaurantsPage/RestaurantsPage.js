@@ -1,9 +1,9 @@
 import React from "react";
 import './RestaurantsPage.css';
 
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import RestaurantsLooper from "./components/RestaurantsLooper";
+import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer";
+import RestaurantsLooper from "../../components/RestaurantsLooper/RestaurantsLooper";
 
 const RestaurantsPage = () => {
 

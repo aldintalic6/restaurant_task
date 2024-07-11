@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import './components/RandomFood.css';
+import './RandomFood.css';
 
 function RandomFood() {
 
