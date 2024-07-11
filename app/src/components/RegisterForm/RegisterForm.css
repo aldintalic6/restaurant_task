@@ -1,0 +1,43 @@
+.register-form-container {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+.register-form {
+    width: 30%;
+}
+
+.form-title {
+    text-align: start;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    width: 100%;
+    padding: 5px;
+}
+
+.inputTitle {
+    color: black;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.form-control {
+    border-radius: 20px;
+    background-color: #e9effc;
+    padding: 13px;
+    font-size: 16px;
+}
+
+.btn {
+    background-color: tomato;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    width: 70%;
+    margin: 0 auto;
+    
+}
