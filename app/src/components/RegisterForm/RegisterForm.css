@@ -32,12 +32,24 @@
     font-size: 16px;
 }
 
-.btn {
+.register_btn {
     background-color: tomato;
     border-radius: 10px;
     color: white;
     font-weight: bold;
     width: 70%;
     margin: 0 auto;
-    
+}
+
+.register-footer-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.signInButton_register {
+    color: rgb(73, 69, 69);
+    font-weight: bold;
+    text-decoration: underline;
+    font-size: 13px;
+    margin: 0 auto;
 }
