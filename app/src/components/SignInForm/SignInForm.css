@@ -2,15 +2,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Example height */
+    flex-grow: 1; 
 }
 
 .signin-form {
-    max-width: 400px;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    background-color: #f9f9f9;
+    width: 30%;
 }
 
 .inputTitle {
@@ -26,19 +22,33 @@
     font-size: 16px;
 }
 
-.btn {
+.signin_btn {
     background-color: tomato;
     border-radius: 10px;
     color: white;
     font-weight: bold;
+    width: 70%;
+}
+
+.signin_btn:hover {
+    color: rgb(203, 192, 192)
+}
+
+.signin-footer-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
 .registerLink_signin {
     font-size: 14px;
-    color: blue;
-    text-decoration: none;
+    color: rgb(73, 69, 69);
+    text-decoration: underline;
+    font-size: 13px;
 }
 
 .registerLink_signin:hover {
-    color: red;
+    color: blue;
 }

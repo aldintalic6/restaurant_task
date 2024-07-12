@@ -3,7 +3,7 @@ import React from 'react';
 import Home from './layouts/HomeScreen/Home';
 import RestaurantsPage from './layouts/RestaurantsPage/RestaurantsPage';
 import Register from './layouts/RegisterScreen/Register';
-import SignIn from './components/SignInForm/SignInForm';
+import SignIn from './layouts/SignInPage/SignIn';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 

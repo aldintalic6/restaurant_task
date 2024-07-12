@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import styles from './SignInForm.module.css';
+import './SignInForm.css';
 
 const SignInForm = () => {
     return (
-        <div className="{signin-form-container}">
+        <div className="signin-form-container">
             <div className="signin-form">
                 <form>
                     <div className="form-group">

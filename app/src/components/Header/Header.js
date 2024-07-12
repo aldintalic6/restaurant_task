@@ -15,7 +15,7 @@ const Header = () => {
             </div>
             {location.pathname !== '/register' && location.pathname !== '/signin' && (
                 <div className={`${styles.signInContainer} p-5 `}>
-                    <Link className={styles.signInLink} to="/register">Sign In</Link>
+                    <Link className={styles.signInLink} to="/signin">Sign In</Link>
                 </div>
             )}
         </div>
