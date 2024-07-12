@@ -1,20 +1,21 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import './Header.css';
+
+import styles from './Header.module.css';
 
 const Header = () => {
     const location = useLocation();
     
     return(
-        <div className="headerContainer ">
-            <div className="linksContainer p-5">
-                <Link className="links" to="/">Home</Link>
-                <Link className="links" to="/restaurants">Restaurants</Link>
-                <Link className="links" to="/food">Food</Link>
+        <div className={styles.headerContainer}>
+            <div className={`${styles.linksContainer} p-5`}>
+                <Link className={styles.links} to="/">Home</Link>
+                <Link className={styles.links} to="/restaurants">Restaurants</Link>
+                <Link className={styles.links} to="/food">Food</Link>
             </div>
             {location.pathname !== '/register' && location.pathname !== '/signin' && (
-                <div className="signInContainer p-5">
-                    <Link className="signInLink" to="/register">Sign In</Link>
+                <div className={`${styles.signInContainer} p-5 `}>
+                    <Link className={styles.signInLink} to="/register">Sign In</Link>
                 </div>
             )}
         </div>

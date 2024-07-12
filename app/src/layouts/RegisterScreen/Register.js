@@ -1,9 +1,9 @@
 import React from "react";
-import './Register.css';
 
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import RegisterForm from "../../components/RegisterForm/RegisterForm";
+import styles from './Register.css';
 
 const Register = () => {
 

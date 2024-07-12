@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import './RandomFood.css';
+import styles from './RandomFood.module.css';
 
 function RandomFood() {
 
@@ -23,7 +23,7 @@ function RandomFood() {
     };
 
     return (
-        <div className="randomFoodContainer">
+        <div className={styles.randomFoodContainer}>
             <h2>Random food</h2>
             <div className="buttonContainer">
                 <button onClick={getRandomFood} class="btn btn-success">Generate</button>

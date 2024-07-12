@@ -9,6 +9,7 @@
 .linksContainer {
     display: flex;
     flex-direction: row;
+    padding: 5px;
 }
 .links {
     margin: 10px;
@@ -24,6 +25,7 @@
 
 .signInContainer {
     display: flex;
+    padding: 5px;
 }
 
 .signInLink {
