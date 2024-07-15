@@ -9,8 +9,8 @@ const SignInForm = () => {
             <div className="signin-form">
                 <form>
                     <div className="form-group">
-                        <label className='inputTitle' htmlFor="username">Username</label>
-                        <input type="text" className="form-control" id="username" placeholder="Username" required />
+                        <label className='inputTitle' htmlFor="usernameoremail">Username or Email</label>
+                        <input type="text" className="form-control" id="usernameoremail" placeholder="Username or Email" required />
                     </div>
                     <div className="form-group">
                         <label className='inputTitle' htmlFor="password">Password</label>
