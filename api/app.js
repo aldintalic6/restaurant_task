@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
@@ -12,16 +13,21 @@ const loginRoute = require('./routes/login');
 
 const app = express();
 
-app.use(cors());
+// Define corsOptions
+const corsOptions = {
+    origin: 'http://localhost:3000', // Update to the frontend port if different
+    credentials: true,
+};
+
+app.use(cors(corsOptions)); // Use corsOptions
 app.use(bodyParser.json());
 app.use(cookieParser());
 
 app.use('/register', registerRoute);
 app.use('/login', loginRoute);
 
-app.use('/restaurants', restaurantRoutes);
-app.use('/food', foodRoutes);
-
+app.use('/restaurants', verifyToken, restaurantRoutes);
+app.use('/food', verifyToken, foodRoutes);
 
 app.use(errorHandler);
 

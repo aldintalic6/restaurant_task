@@ -18,6 +18,8 @@ const SignInForm = () => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({ usernameOrEmail, password }),
+            credentials: 'include',
+            
         })
             .then(response => response.json())
             .then(data => {

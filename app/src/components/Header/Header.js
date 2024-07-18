@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useLocation, Navigate, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Cookies from 'js-cookie';
 
 import styles from './Header.module.css';
@@ -12,6 +12,7 @@ const Header = () => {
     useEffect(() => {
         // Check if token exists in cookies to determine login status
         const token = Cookies.get('token');
+        console.log("Token", token)
         setIsLoggedIn(!!token); // !!token converts to boolean
     }, []);
 
