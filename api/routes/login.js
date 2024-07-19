@@ -5,7 +5,6 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
-
 router.post('/', (req, res) => {
     const { usernameOrEmail, password } = req.body;
 
@@ -43,7 +42,7 @@ router.post('/', (req, res) => {
             const token = jwt.sign({user: user}, process.env.JWT_SECRET, { expiresIn: '1h' });
 
             res.cookie('token', token, {
-                httpOnly: true,
+               
             });
 
             res.status(200).json({ message: 'Login successful', userId: user.id });

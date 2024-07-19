@@ -10,6 +10,7 @@ const restaurantRoutes = require('./routes/restaurants');
 const foodRoutes = require('./routes/food');
 const registerRoute = require('./routes/register');
 const loginRoute = require('./routes/login');
+const userRoute = require('./routes/user');
 
 const app = express();
 
@@ -25,9 +26,10 @@ app.use(cookieParser());
 
 app.use('/register', registerRoute);
 app.use('/login', loginRoute);
+app.use('/user', userRoute);
 
-app.use('/restaurants', verifyToken, restaurantRoutes);
-app.use('/food', verifyToken, foodRoutes);
+app.use('/restaurants', restaurantRoutes);
+app.use('/food', foodRoutes);
 
 app.use(errorHandler);
 

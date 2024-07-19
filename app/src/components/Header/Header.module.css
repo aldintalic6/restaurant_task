@@ -40,3 +40,23 @@
     color: tomato;
     text-decoration: none; 
 }
+
+.signOutLink {
+    font-size: 20px;
+    background-color: white;
+    padding: 7px;
+    color: tomato;
+    font-weight: bold;
+    border: none;
+}
+
+.signOutLink:hover {
+    background-color: rgb(239, 230, 230);
+    color: tomato;
+    text-decoration: none; 
+}
+
+.signOutLink:focus,
+.signOutLink:active {
+    outline: none; 
+}
