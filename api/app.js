@@ -10,6 +10,7 @@ const restaurantRoutes = require('./routes/restaurants');
 const foodRoutes = require('./routes/food');
 const registerRoute = require('./routes/register');
 const loginRoute = require('./routes/login');
+const logoutRoute = require('./routes/logout');
 const userRoute = require('./routes/user');
 
 const app = express();
@@ -26,6 +27,7 @@ app.use(cookieParser());
 
 app.use('/register', registerRoute);
 app.use('/login', loginRoute);
+app.use('/logout', logoutRoute);
 app.use('/user', userRoute);
 
 app.use('/restaurants', restaurantRoutes);

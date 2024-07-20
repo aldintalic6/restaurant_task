@@ -39,10 +39,10 @@ router.post('/', (req, res) => {
             }
             
             // Generate JWT
-            const token = jwt.sign({user: user}, process.env.JWT_SECRET, { expiresIn: '1h' });
+            const token = jwt.sign({userId: user.id}, process.env.JWT_SECRET, { expiresIn: '1h' });
 
             res.cookie('token', token, {
-               
+                httpOnly: true
             });
 
             res.status(200).json({ message: 'Login successful', userId: user.id });

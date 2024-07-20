@@ -8,15 +8,24 @@ import { useUser } from "../../contexts/UserContext";
 
 const Header = () => {
     const { user, setUser } = useUser(); // user context
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
     const location = useLocation();
     const navigate = useNavigate()
 
     const handleLogout = () => {
-        // Clear the token by removing the cookie
-        Cookies.remove('token');
-        setIsLoggedIn(false); // Update login status
-        navigate('/signin');
+        fetch('http://localhost:5001/logout', {
+            method: 'POST',
+            credentials: 'include'
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.message === 'Logout successful') {
+                setUser(null);
+                navigate('/signin');
+            }
+        })
+        .catch(error => {
+            console.error('Error during logout:', error);
+        });
     };
     
     return(
@@ -31,7 +40,7 @@ const Header = () => {
                     <Link className={styles.signInLink} to="/signin">Sign In</Link>
                 </div>
             )}
-            {user && (
+            {user && location.pathname !== '/register' && location.pathname !== '/signin' && (
                 <div className={`${styles.signInContainer} p-5`}>
                     <button className={styles.signOutLink} onClick={handleLogout}>Logout</button>
                 </div>

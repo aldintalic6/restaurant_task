@@ -4,9 +4,8 @@ const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
     const [user, setUser] = useState(null);
-    console.log(user);
 
-    useEffect(() => {
+    const fetchUserData = () => {
         fetch('http://localhost:5001/user', {
             method: 'GET',
             credentials: 'include',
@@ -14,17 +13,23 @@ export const UserProvider = ({ children }) => {
         .then(response => response.json())
         .then(data => {
             if (!data.error) {
-                setUser(data)
+                setUser(data);
+            } else {
+                setUser(null);
             }
         })
         .catch(error => {
             console.error('Error fetching user data:', error);
+            setUser(null);
         });
+    };
 
+    useEffect(() => {
+        fetchUserData();
     }, []);
 
     return (
-        <UserContext.Provider value={{user, setUser}}>
+        <UserContext.Provider value={{user, setUser, fetchUserData}}>
             {children}
         </UserContext.Provider>
     );

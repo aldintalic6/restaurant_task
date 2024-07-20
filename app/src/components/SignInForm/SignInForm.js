@@ -4,11 +4,14 @@ import { ToastContainer, toast } from 'react-toastify';
 import { useState } from "react";
 import 'react-toastify/dist/ReactToastify.css';
 
+import { useUser } from "../../contexts/UserContext";
+
 import './SignInForm.css';
 
 const SignInForm = () => {
     const [usernameOrEmail, setUsernameOrEmail] = useState('');
     const [password, setPassword] = useState('');
+    const { fetchUserData } = useUser();
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -19,7 +22,7 @@ const SignInForm = () => {
             },
             body: JSON.stringify({ usernameOrEmail, password }),
             credentials: 'include',
-            
+
         })
             .then(response => response.json())
             .then(data => {
@@ -28,6 +31,7 @@ const SignInForm = () => {
                 }
                 else {
                     toast.success('Login successful!');
+                    fetchUserData();
                 }
             })
             .catch(error => {
