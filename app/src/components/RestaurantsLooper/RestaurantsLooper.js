@@ -6,7 +6,9 @@ const RestaurantsLooper = () => {
     const [restaurants, setRestaurants] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5001/restaurants')
+        fetch('http://localhost:5001/restaurants', {
+            credentials: 'include'
+        })
             .then(respone => respone.json())
             .then(data => setRestaurants(data))
             .catch(error => console.error("Error fetching restaurans ", error));
@@ -14,7 +16,8 @@ const RestaurantsLooper = () => {
 
     const deleteRestaurant = (id) => {
         fetch(`http://localhost:5001/restaurants/${id}`, {
-            method: 'DELETE'
+            method: 'DELETE',
+            credentials: 'include'
         })
             .then(respone => respone.json())
             .then(data => {

@@ -8,10 +8,12 @@ const verifyToken = require('./middleware/jwtProtected');
 
 const restaurantRoutes = require('./routes/restaurants');
 const foodRoutes = require('./routes/food');
+const categoryRoute = require('./routes/category');
 const registerRoute = require('./routes/register');
 const loginRoute = require('./routes/login');
 const logoutRoute = require('./routes/logout');
 const userRoute = require('./routes/user');
+
 
 const app = express();
 
@@ -30,8 +32,9 @@ app.use('/login', loginRoute);
 app.use('/logout', logoutRoute);
 app.use('/user', userRoute);
 
-app.use('/restaurants', restaurantRoutes);
+app.use('/restaurants', verifyToken, restaurantRoutes);
 app.use('/food', foodRoutes);
+app.use('/category', categoryRoute);
 
 app.use(errorHandler);
 
