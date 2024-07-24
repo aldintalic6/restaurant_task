@@ -5,8 +5,9 @@
     align-items: center;
     width: 100%;
     padding: 3rem;
-    background-color: rgb(re, 235, 235);
+    background-color: rgb(235, 235, 235);
 }
+
 .text-container {
     width: 100%;
     display: flex;
@@ -15,13 +16,15 @@
     align-items: center;
     padding-left: 2rem;
     padding-right: 2rem;
-    
+
 }
 
 .text-container p,
 .text-container .styles-link {
-    margin: 0; /* Reset margin */
-    padding: 0; /* Reset padding */
+    margin: 0;
+    /* Reset margin */
+    padding: 0;
+    /* Reset padding */
 }
 
 .categoryText {
@@ -31,6 +34,7 @@
 
 .styles-link {
     color: tomato;
+
 }
 
 .category-container {
@@ -38,8 +42,8 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    
 }
+
 .category-card {
     display: flex;
     flex-direction: column;
@@ -48,12 +52,14 @@
     margin-left: 30px;
     margin-right: 30px;
     background-color: white;
-    width: 15%;
-    height: 60%;
+    width: 200px;
+    height: 150px;
     border-radius: 10px;
     border-width: 1px;
     border-color: black;
+    overflow: hidden;
 }
+
 .image-text-container {
     display: flex;
     flex-direction: column;
@@ -65,11 +71,163 @@
     font-size: 15px;
     color: rgb(122, 116, 116);
     font-weight: bold;
+
 }
 
 .category-image {
     width: 70%;
-    height: 70%;
+    height: 100px;
     object-fit: cover;
     border-bottom: 1px solid #ddd;
+}
+
+.food-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    
+}
+
+.food-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 10px;
+    border-width: 1px;
+    border-color: black;
+    width: 300px;
+    height: 320px;
+    padding: 25px;
+    margin: 0 30px;
+    position: relative;
+    
+}
+
+.food-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.food-card-header {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.fa-heart {
+    color: tomato;
+}
+
+.food-card-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.food-card-text {
+    font-size: 20px;
+    color: rgb(103, 99, 99);
+
+}
+
+.food-card-footer h3,
+.food-card-footer p {
+    margin: 0;
+    padding: 0;
+}
+
+.food-card-price {
+    font-weight: bold;
+    color: #ff6347;
+}
+
+.food-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    border-color: white;
+
+}
+
+.restaurant-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    
+}
+
+.restaurant-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 10px;
+    border-width: 1px;
+    border-color: black;
+    width: 300px;
+    height: 320px;
+    padding: 25px;
+    margin: 0 30px;
+    position: relative;
+    
+}
+
+.restaurant-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.restaurant-card-header {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.restaurant-card-footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.restaurant-card-text {
+    font-size: 20px;
+    color: rgb(103, 99, 99);
+
+}
+
+.restaurant-card-footer h3,
+.restaurant-card-footer p {
+    margin: 0;
+    padding: 0;
+}
+
+.restaurant-card-address {
+    font-weight: bold;
+    color: #ff6347;
+}
+
+
+.restaurant-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    border-color: white;
+
 }

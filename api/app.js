@@ -32,7 +32,7 @@ app.use('/login', loginRoute);
 app.use('/logout', logoutRoute);
 app.use('/user', userRoute);
 
-app.use('/restaurants', verifyToken, restaurantRoutes);
+app.use('/restaurants', restaurantRoutes);
 app.use('/food', foodRoutes);
 app.use('/category', categoryRoute);
 
