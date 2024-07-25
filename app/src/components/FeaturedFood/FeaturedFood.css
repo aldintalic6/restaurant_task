@@ -4,7 +4,7 @@
     flex-grow: 1;
     align-items: center;
     width: 100%;
-    padding: 3rem;
+    
     background-color: rgb(235, 235, 235);
 }
 
@@ -230,4 +230,74 @@
     border-radius: 10px;
     border-color: white;
 
+}
+
+.picture-text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+    width: 100%;
+    height: 570px; 
+    background-image: url('/Users/aldintalic/restaurant_task/app/public/images/background4.jpg');
+    background-size: cover;
+    padding: 2rem;
+    
+}
+
+.picture-text-container-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 1rem;
+    width: 100%;
+}
+
+.picture-text-container-buttons-text {
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    font-size: 45px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    
+}
+
+.picture-text-container-buttons-smallText {
+    color: rgb(167, 159, 159);
+    font-weight: bold;
+    font-size: 20px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.picture-text-container-login-button {
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border-radius: 15px;
+    border-color: white;
+    background-color: tomato;
+    padding: 10px;
+    width: 150px;
+    text-align: center;
+}
+
+.picture-text-container-register-button {
+    color: tomato;
+    font-weight: bold;
+    font-size: 24px;
+     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border-radius: 15px;
+    border-color: white;
+    background-color: white;
+    padding: 10px;
+    width: 150px;
+    text-align: center;
+}
+
+.buttonsContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    width: 400px; 
 }

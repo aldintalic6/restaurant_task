@@ -17,7 +17,7 @@ const FeaturedRecipes = () => {
             .catch(error => console.error("Error fetching categories ", error));
     }, []);
 
-     // food
+    // food
     useEffect(() => {
         fetch('http://localhost:5001/food')
             .then(response => response.json())
@@ -123,6 +123,20 @@ const FeaturedRecipes = () => {
                         </div>
                     </Link>
                 ))}
+            </div>
+
+            {/* picture with text and login/register button cards */}
+
+            <div className="picture-text-container mt-5">
+                <div className="picture-text-container-buttons">
+                    <h3 className="picture-text-container-buttons-text">Feels Like Home,</h3>
+                    <h3 className="picture-text-container-buttons-text">Tastes Like Paradise</h3>
+                    <h5 className="picture-text-container-buttons-smallText mt-3 mb-3">Sign in or create an account. It's completely free!</h5>
+                    <div className="buttonsContainer">
+                        <Link className="picture-text-container-login-button" to="/signin">Sign In</Link>
+                        <Link className="picture-text-container-register-button" to="/register">Register</Link>
+                    </div>
+                </div>
             </div>
         </div>
     );
