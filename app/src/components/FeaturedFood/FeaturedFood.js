@@ -6,8 +6,10 @@ import './FeaturedFood.css';
 
 const FeaturedRecipes = () => {
     const [category, setCategory] = useState([]);
-    const [food, setFood] = useState([]);
-    const [resturant, setRestaurant] = useState([]);
+    const [food, setFood] = useState([]); // contains max. 3 filtered food entries 
+    const [allFood, setAllFood] = useState([]); // contains all the food
+    const [restaurant, setRestaurant] = useState([]);
+    const [selectedCategory, setSelectedCategory] = useState(null);
 
     // category
     useEffect(() => {
@@ -22,6 +24,7 @@ const FeaturedRecipes = () => {
         fetch('http://localhost:5001/food')
             .then(response => response.json())
             .then(data => {
+                setAllFood(data);
                 selectRandomFood(data);
             })
             .catch(error => console.error("Error fetching food ", error));
@@ -43,7 +46,7 @@ const FeaturedRecipes = () => {
             if (foodArrayCopy.length === 0) break;
 
             const randomIndex = Math.floor(Math.random() * foodArrayCopy.length);
-            const element = foodArrayCopy.splice(randomIndex, 1)[0]; // removes the random food from the array, so it isnt selected again
+            const element = foodArrayCopy.splice(randomIndex, 1)[0]; // splice - removes the random food from the array, so it isnt selected again
             selectedFood.push(element);
         }
 
@@ -65,20 +68,50 @@ const FeaturedRecipes = () => {
         setRestaurant(selectedRestaurants);
     };
 
+    // Handle category click
+    const handleCategoryClick = (category) => {
+        if (selectedCategory && selectedCategory.id === category.id) {
+            setSelectedCategory(null);
+            selectRandomFood(allFood)
+        }
+        else if (category) {
+            setSelectedCategory(category);
+            const filteredFood = allFood.filter(foodItem => foodItem.categoryId === category.id);
+            selectRandomFood(filteredFood);
+        }
+    };
+
     return (
         <div className="featured-recipes-container">
-            <div className="text-container mt-3">
+            {/* picture with text and login/register button cards */}
+
+            <div className="picture-text-container">
+                <div className="picture-text-container-buttons">
+                    <h3 className="picture-text-container-buttons-text">Feels Like Home,</h3>
+                    <h3 className="picture-text-container-buttons-text">Tastes Like Paradise</h3>
+                    <h5 className="picture-text-container-buttons-smallText mt-3 mb-3">Sign in or create an account. It's completely free!</h5>
+                    <div className="buttonsContainer">
+                        <Link className="picture-text-container-login-button" to="/signin">Sign In</Link>
+                        <Link className="picture-text-container-register-button" to="/register">Register</Link>
+                    </div>
+                </div>
+            </div>
+
+            <div className="text-container mt-4">
                 <p className="categoryText">Category</p>
                 <Link className="styles-link" to="/category">View all</Link>
             </div>
 
             {/* category cards */}
             <div className="category-container">
-                {category.map(categoryitem => (
-                    <div key={categoryitem.id} className="category-card">
+                {category.map(categoryItem => (
+                    <div
+                        key={categoryItem.id}
+                        className={`category-card ${selectedCategory && selectedCategory.id === categoryItem.id ? 'selected' : ''}`}
+                        onClick={() => handleCategoryClick(categoryItem)}>
                         <div className="image-text-container">
-                            <img src={`/images/${categoryitem.image}`} alt={categoryitem.name} className="category-image" />
-                            <p className="category-text mt-1">{categoryitem.name}</p>
+                            <img src={`/images/${categoryItem.image}`} alt={categoryItem.name} className="category-image" />
+                            <p className="category-text mt-1">{categoryItem.name}</p>
                         </div>
 
                     </div>
@@ -111,8 +144,8 @@ const FeaturedRecipes = () => {
             </div>
 
             {/* restaurants cards */}
-            <div className="restaurant-container mt-4">
-                {resturant.map(restaurantItem => (
+            <div className="restaurant-container mt-4 mb-4">
+                {restaurant.map(restaurantItem => (
                     <Link to={`restaurant/${restaurantItem.Id}`}>
                         <div className="restaurant-card">
                             <img src={`/images/${restaurantItem.image}`} alt={restaurantItem.name} className="restaurant-image mb-2" />
@@ -125,19 +158,6 @@ const FeaturedRecipes = () => {
                 ))}
             </div>
 
-            {/* picture with text and login/register button cards */}
-
-            <div className="picture-text-container mt-5">
-                <div className="picture-text-container-buttons">
-                    <h3 className="picture-text-container-buttons-text">Feels Like Home,</h3>
-                    <h3 className="picture-text-container-buttons-text">Tastes Like Paradise</h3>
-                    <h5 className="picture-text-container-buttons-smallText mt-3 mb-3">Sign in or create an account. It's completely free!</h5>
-                    <div className="buttonsContainer">
-                        <Link className="picture-text-container-login-button" to="/signin">Sign In</Link>
-                        <Link className="picture-text-container-register-button" to="/register">Register</Link>
-                    </div>
-                </div>
-            </div>
         </div>
     );
 };

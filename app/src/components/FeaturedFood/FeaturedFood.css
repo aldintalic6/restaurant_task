@@ -4,7 +4,6 @@
     flex-grow: 1;
     align-items: center;
     width: 100%;
-    
     background-color: rgb(235, 235, 235);
 }
 
@@ -39,9 +38,11 @@
 
 .category-container {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     width: 100%;
+    gap: 1.5rem
 }
 
 .category-card {
@@ -58,6 +59,17 @@
     border-width: 1px;
     border-color: black;
     overflow: hidden;
+}
+
+.category-card:hover {
+    cursor: pointer;
+    box-shadow: 0 0 6px 12px rgb(253, 143, 123);
+   
+}
+
+.category-card.selected {
+    box-shadow: 0 0 6px 12px rgb(253, 143, 123);
+    border: 2px solid rgb(253, 143, 123);
 }
 
 .image-text-container {
@@ -84,6 +96,7 @@
 .food-container {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     width: 100%;
     justify-content: center;
     align-items: center;
@@ -161,6 +174,7 @@
 .restaurant-container {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     width: 100%;
     justify-content: center;
     align-items: center;
@@ -252,6 +266,7 @@
     align-items: flex-start;
     gap: 1rem;
     width: 100%;
+    margin-left: 50px;
 }
 
 .picture-text-container-buttons-text {
