@@ -1,0 +1,46 @@
+.food-details-container {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 2rem;
+    gap: 3rem;
+}
+
+.food-details-image-container {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.food-details-image {
+    height: 500px;
+    width: 700px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+@media (max-width: 1440px) {
+    .food-details-image {
+        height: 400px;
+        width: 500px; 
+    }
+}
+
+.food-details-middle-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 800px; 
+    padding: 1rem; 
+    height: 100%;
+    
+}
+
+.food-details-third-container {
+
+    height: 100%;
+    width: 600px;
+    padding: 1rem; 
+}
