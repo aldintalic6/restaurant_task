@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 import './FoodDetails.css';
 
 const FoodDetails = () => {
+
     const [foodName, setFoodName] = useState('');
     const [foodPrice, setFoodPrice] = useState('');
     const [foodDescription, setFoodDescription] = useState('');
@@ -12,22 +13,39 @@ const FoodDetails = () => {
     const [foodCalories, setFoodCalories] = useState(null);
     const [foodImage, setFoodImage] = useState(null);
 
+    const { id } = useParams();
+
+    // fetching food by id
+    useEffect(() => {
+        fetch(`http://localhost:5001/food/${id}`) 
+            .then(response => response.json())
+            .then(data => {
+                setFoodName(data.name);
+                setFoodPrice(data.price);
+                setFoodDescription(data.description);
+                setFoodIngredients(data.ingredients);
+                setFoodCalories(data.calories);
+                setFoodImage(data.image);
+            })
+            .catch(error => console.error('Error fetching food details:', error));
+    }, []); 
+
     return (
         <div className="food-details-container">
             <div className="food-details-image-container ml-3">
-                <img src='/images/cheeseburger.jpeg' alt="burger" className="food-details-image" />
+                <img src={`/images/${foodImage}`} alt={foodName} className="food-details-image" />
             </div>
             <div className="food-details-middle-container">
                 <h3>DESCRIPTION</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p>{foodDescription}</p>
                 <h3>INGREDIENTS</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud</p>
+                <p>{foodIngredients}</p>
                 <h3>CALORIES</h3>
-                <p>127kcal</p>
+                <p>{foodCalories}kcal</p>
             </div>
             <div className="food-details-third-container">
-                <h2>BURGER</h2>
-                <p>$12.99</p>
+                <h3>{foodName}</h3>
+                <p>${foodPrice}</p>
             </div>
         </div>
     );

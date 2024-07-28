@@ -3,10 +3,10 @@
     flex-direction: row;
     flex-grow: 1;
     justify-content: space-evenly;
-    align-items: center;
     padding: 2rem;
     gap: 3rem;
     background-color: rgb(235, 235, 235);
+min-height: 600px;
 }
 
 .food-details-image-container {
@@ -32,8 +32,8 @@
 .food-details-middle-container {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
-    width: 800px; 
+    justify-content: space-between;
+    width: 1000px; 
     padding: 1rem; 
     height: 100%;
     
@@ -47,12 +47,18 @@
     
 }
 
+.food-details-middle-container h3 {
+    font-size: 22px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 .food-details-middle-container p, h3 {
     text-align: justify;
 }
 
 .food-details-third-container {
-
+    display: flex;
+    flex-direction: column;
     height: 100%;
     width: 600px;
     padding: 1rem; 
@@ -64,4 +70,8 @@
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: rgb(104, 99, 99);
     font-weight: bold;
+}
+
+.food-details-third-container h3 {
+    font-family: Arial, Helvetica, sans-serif;
 }
