@@ -14,7 +14,7 @@ const FoodDetails = () => {
 
     return (
         <div className="food-details-container">
-            <div className="food-details-image-container">
+            <div className="food-details-image-container ml-3">
                 <img src='/images/cheeseburger.jpeg' alt="burger" className="food-details-image" />
             </div>
             <div className="food-details-middle-container">

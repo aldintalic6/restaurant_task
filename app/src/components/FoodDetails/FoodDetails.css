@@ -6,6 +6,7 @@
     align-items: center;
     padding: 2rem;
     gap: 3rem;
+    background-color: rgb(235, 235, 235);
 }
 
 .food-details-image-container {
@@ -38,9 +39,29 @@
     
 }
 
+.food-details-middle-container p {
+    font-size: 16px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: rgb(104, 99, 99);
+    font-weight: bold;
+    
+}
+
+.food-details-middle-container p, h3 {
+    text-align: justify;
+}
+
 .food-details-third-container {
 
     height: 100%;
     width: 600px;
     padding: 1rem; 
+}
+
+.food-details-third-container p {
+    text-align: justify;
+    font-size: 18px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: rgb(104, 99, 99);
+    font-weight: bold;
 }
