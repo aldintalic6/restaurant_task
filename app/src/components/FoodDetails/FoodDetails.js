@@ -12,12 +12,13 @@ const FoodDetails = () => {
     const [foodIngredients, setFoodIngredients] = useState('');
     const [foodCalories, setFoodCalories] = useState(null);
     const [foodImage, setFoodImage] = useState(null);
+    const [isEditing, setIsEditing] = useState(false); // state to toggle edit mode
 
     const { id } = useParams();
 
     // fetching food by id
     useEffect(() => {
-        fetch(`http://localhost:5001/food/${id}`) 
+        fetch(`http://localhost:5001/food/${id}`)
             .then(response => response.json())
             .then(data => {
                 setFoodName(data.name);
@@ -28,7 +29,39 @@ const FoodDetails = () => {
                 setFoodImage(data.image);
             })
             .catch(error => console.error('Error fetching food details:', error));
-    }, []); 
+    }, []);
+
+    const handleSaveClick = () => {
+        // Save the updated food details
+        fetch(`http://localhost:5001/food/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                name: foodName,
+                price: foodPrice,
+                description: foodDescription,
+                ingredients: foodIngredients,
+                calories: foodCalories,
+                image: foodImage,
+            }),
+        })
+            .then(response => response.json())
+            .then(data => {
+                setIsEditing(false);
+            })
+            .catch(error => console.error('Error updating food details:', error));
+    };
+
+    const handleEditClick = () => {
+        setIsEditing(true);
+    };
+
+    const handleCancelClick = () => {
+        setIsEditing(false);
+        // Optionally, reset the fields to the original values
+    };
 
     return (
         <div className="food-details-container">
@@ -37,18 +70,49 @@ const FoodDetails = () => {
             </div>
             <div className="food-details-middle-container">
                 <h3>DESCRIPTION</h3>
-                <p>{foodDescription}</p>
+                {isEditing ? (
+                    <textarea value={foodDescription} onChange={(e) => setFoodDescription(e.target.value)} />
+                ) : (
+                    <p>{foodDescription}</p>
+                )}
                 <h3>INGREDIENTS</h3>
-                <p>{foodIngredients}</p>
+                {isEditing ? (
+                    <textarea value={foodIngredients} onChange={(e) => setFoodIngredients(e.target.value)} />
+                ) : (
+                    <p>{foodIngredients}</p>
+                )}
                 <h3>CALORIES</h3>
-                <p>{foodCalories}kcal</p>
+                {isEditing ? (
+                    <input type="number" value={foodCalories} onChange={(e) => setFoodCalories(e.target.value)} />
+                ) : (
+                    <p>{foodCalories}kcal</p>
+                )}
             </div>
             <div className="food-details-third-container">
-                <h3>{foodName}</h3>
-                <p>${foodPrice}</p>
+                {isEditing ? (
+                    <>
+                        <input type="text" value={foodName} onChange={(e) => setFoodName(e.target.value)} />
+                        <input type="number" value={foodPrice} onChange={(e) => setFoodPrice(e.target.value)} />
+                    </>
+                ) : (
+                    <>
+                        <h3>{foodName}</h3>
+                        <p>${foodPrice}</p>
+                    </>
+                )}
                 <div className="food-details-third-container-buttons">
-                    <button>Edit</button>
-                    <button>Delete</button>
+                    {isEditing ? (
+                        <>
+                            <button onClick={handleSaveClick}>Save</button>
+                            <button onClick={handleCancelClick}>Cancel</button>
+                        </>
+                    ) : (
+                        <>
+                            <button onClick={handleEditClick}>Edit</button>
+                            <button>Delete</button>
+                        </>
+                    )}
+
                 </div>
             </div>
         </div>
