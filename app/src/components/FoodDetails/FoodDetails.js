@@ -46,6 +46,10 @@ const FoodDetails = () => {
             <div className="food-details-third-container">
                 <h3>{foodName}</h3>
                 <p>${foodPrice}</p>
+                <div className="food-details-third-container-buttons">
+                    <button>Edit</button>
+                    <button>Delete</button>
+                </div>
             </div>
         </div>
     );
