@@ -60,7 +60,7 @@ const FoodDetails = () => {
 
     const handleCancelClick = () => {
         setIsEditing(false);
-        // Optionally, reset the fields to the original values
+    
     };
 
     return (

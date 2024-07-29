@@ -51,6 +51,7 @@ router.post('/', (req, res) => {
 // edit food
 
 router.put('/:id', (req, res) => {
+    const { id } = req.params;
     const { name, price, restaurantId, categoryId, image, calories, description, ingredients } = req.body;
     pool.query('UPDATE food SET name = ?, price = ?, restaurantId = ?, categoryId = ?, image = ?, calories = ?, description = ?, ingredients = ? WHERE Id = ?', 
         [name, price, restaurantId, categoryId, image, calories, description, ingredients, id], (err, result) => {
