@@ -1,18 +1,15 @@
 const express = require('express');
 const router = express.Router();
 const jwt = require('jsonwebtoken');
+const verifyToken = require('../middleware/jwtProtected');
 require('dotenv').config();
 
 // retrieving user from token
-router.get('/', (req, res) => {
-    const token = req.cookies.token;
+router.get('/', verifyToken, (req, res) => {
+    // token has been verified
 
-    jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
-        if (err) {
-            return res.status(401).json({ error: 'Unauthorized' });
-        }
-        res.status(200).json({ user: decoded.user });
-    });
-})
+    res.status(200).json({ user: { id: req.userId } });
+
+});
 
 module.exports = router;

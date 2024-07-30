@@ -14,7 +14,7 @@ const verifyToken = (req, res, next) => {
             return res.status(500).json({ error: 'Failed to authenticate token' });
         }
 
-        req.userId = decoded.id;
+        req.userId = decoded.userId;
         next();
     });
 };

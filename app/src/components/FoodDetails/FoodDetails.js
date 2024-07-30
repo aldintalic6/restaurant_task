@@ -10,6 +10,8 @@ const FoodDetails = () => {
     const [foodPrice, setFoodPrice] = useState('');
     const [foodDescription, setFoodDescription] = useState('');
     const [foodIngredients, setFoodIngredients] = useState('');
+    const [restaurantId, setRestaurantId] = useState(null);
+    const [categoryId, setCategoryId] = useState(null);
     const [foodCalories, setFoodCalories] = useState(null);
     const [foodImage, setFoodImage] = useState(null);
     const [isEditing, setIsEditing] = useState(false); // state to toggle edit mode
@@ -25,6 +27,8 @@ const FoodDetails = () => {
                 setFoodPrice(data.price);
                 setFoodDescription(data.description);
                 setFoodIngredients(data.ingredients);
+                setRestaurantId(data.restaurantId);
+                setCategoryId(data.categoryId);
                 setFoodCalories(data.calories);
                 setFoodImage(data.image);
             })
@@ -38,6 +42,8 @@ const FoodDetails = () => {
         formData.append('description', foodDescription);
         formData.append('ingredients', foodIngredients);
         formData.append('calories', foodCalories);
+        formData.append('restaurantId', restaurantId);
+        formData.append('categoryId', categoryId);
         if (foodImage instanceof File) {
             formData.append('image', foodImage);
         }
