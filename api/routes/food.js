@@ -1,6 +1,8 @@
 const express = require('express');
 const pool = require('../db/connection');
 const router = express.Router();
+const multer = require('multer');
+const upload = require('../middleware/upload');
 
 // get all food
 
@@ -50,11 +52,23 @@ router.post('/', (req, res) => {
 
 // edit food
 
-router.put('/:id', (req, res) => {
+router.put('/:id', upload.single('image'), (req, res) => {
     const { id } = req.params;
-    const { name, price, restaurantId, categoryId, image, calories, description, ingredients } = req.body;
-    pool.query('UPDATE food SET name = ?, price = ?, restaurantId = ?, categoryId = ?, image = ?, calories = ?, description = ?, ingredients = ? WHERE Id = ?', 
-        [name, price, restaurantId, categoryId, image, calories, description, ingredients, id], (err, result) => {
+    const { name, price, restaurantId, categoryId, calories, description, ingredients } = req.body;
+    const image = req.file ? req.file.filename : null;
+
+    let query = 'UPDATE food SET name = ?, price = ?, restaurantId = ?, categoryId = ?, calories = ?, description = ?, ingredients = ?';
+    let params = [name, price, restaurantId, categoryId, calories, description, ingredients];
+
+    if (image) {
+        query = query + ', image = ?';
+        params.push(image);
+    }
+
+    query = query + ' WHERE Id = ?';
+    params.push(id);
+
+    pool.query(query, params, (err, result) => {
         if (err) {
             console.error('Error executing query: ' + err.stack);
             res.status(500).json({ error: 'Database error' });

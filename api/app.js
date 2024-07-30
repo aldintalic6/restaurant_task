@@ -5,6 +5,7 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const errorHandler = require('./middleware/errorHandler');
 const verifyToken = require('./middleware/jwtProtected');
+const path = require('path');
 
 const restaurantRoutes = require('./routes/restaurants');
 const foodRoutes = require('./routes/food');

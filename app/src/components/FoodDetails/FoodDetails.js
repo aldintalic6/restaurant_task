@@ -32,20 +32,19 @@ const FoodDetails = () => {
     }, []);
 
     const handleSaveClick = () => {
+        const formData = new FormData();
+        formData.append('name', foodName);
+        formData.append('price', foodPrice);
+        formData.append('description', foodDescription);
+        formData.append('ingredients', foodIngredients);
+        formData.append('calories', foodCalories);
+        if (foodImage instanceof File) {
+            formData.append('image', foodImage);
+        }
         // Save the updated food details
         fetch(`http://localhost:5001/food/${id}`, {
             method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                name: foodName,
-                price: foodPrice,
-                description: foodDescription,
-                ingredients: foodIngredients,
-                calories: foodCalories,
-                image: foodImage,
-            }),
+            body: formData,
         })
             .then(response => response.json())
             .then(data => {
@@ -60,13 +59,21 @@ const FoodDetails = () => {
 
     const handleCancelClick = () => {
         setIsEditing(false);
-    
+
+    };
+
+    const handleFileChange = (e) => {
+        setFoodImage(e.target.files[0]);
     };
 
     return (
         <div className="food-details-container">
             <div className="food-details-image-container ml-3">
-                <img src={`/images/${foodImage}`} alt={foodName} className="food-details-image" />
+                {isEditing ? (
+                    <input type="file" onChange={handleFileChange} />
+                ) : (
+                    <img src={`/images/${foodImage}`} alt={foodName} className="food-details-image" />
+                )}
             </div>
             <div className="food-details-middle-container">
                 <h3>DESCRIPTION</h3>
