@@ -98,27 +98,7 @@ const FeaturedRecipes = () => {
             </div>
 
             <div className="text-container mt-4">
-                <p className="categoryText">Category</p>
-                <Link className="styles-link" to="/category">View all</Link>
-            </div>
-
-            {/* category cards */}
-            <div className="category-container">
-                {category.map(categoryItem => (
-                    <div
-                        key={categoryItem.id}
-                        className={`category-card ${selectedCategory && selectedCategory.id === categoryItem.id ? 'selected' : ''}`}
-                        onClick={() => handleCategoryClick(categoryItem)}>
-                        <div className="image-text-container">
-                            <img src={`/images/${categoryItem.image}`} alt={categoryItem.name} className="category-image" />
-                            <p className="category-text mt-1">{categoryItem.name}</p>
-                        </div>
-
-                    </div>
-                ))}
-            </div>
-            <div className="text-container mt-4">
-                <p className="categoryText">Featured Food</p>
+                <p className="smallText">Featured Food</p>
                 <Link className="styles-link" to="/food">View all</Link>
             </div>
 
@@ -139,7 +119,7 @@ const FeaturedRecipes = () => {
             </div>
 
             <div className="text-container mt-4">
-                <p className="categoryText">Featured Restaurants</p>
+                <p className="smallText">Featured Restaurants</p>
                 <Link className="styles-link" to="/food">View all</Link>
             </div>
 

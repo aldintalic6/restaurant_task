@@ -4,6 +4,7 @@ import Home from './layouts/HomeScreen/Home';
 import RestaurantsPage from './layouts/RestaurantsPage/RestaurantsPage';
 import Register from './layouts/RegisterScreen/Register';
 import SignIn from './layouts/SignInPage/SignIn';
+import FoodScreen from './layouts/FoodScreen/FoodScreen';
 import SingleFood from './layouts/SingleFoodScreen/SingleFood';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -16,6 +17,7 @@ function App() {
         <Route path="/restaurants" element={<RestaurantsPage />} />
         <Route path="/register" element={<Register />} />
         <Route path="/signin" element={<SignIn />} />
+        <Route path="/food" element={<FoodScreen />} />
         <Route path="/food/:id" element={<SingleFood />} />
       </Routes>
     </Router>
