@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
-import './FoodDetails.css';
+import styles from './FoodDetails.module.css';
 
 const FoodDetails = () => {
 
@@ -73,39 +73,52 @@ const FoodDetails = () => {
     };
 
     return (
-        <div className="food-details-container">
-            <div className="food-details-image-container ml-3">
+        <div className={styles.foodDetailsContainer}>
+            <div className={`${styles.foodDetailsImageContainer} ml-3`}>
                 {isEditing ? (
                     <input type="file" onChange={handleFileChange} />
                 ) : (
-                    <img src={`/images/${foodImage}`} alt={foodName} className="food-details-image" />
+                    <img src={`/images/${foodImage}`} alt={foodName} className={styles.foodDetailsImage} />
                 )}
             </div>
-            <div className="food-details-middle-container">
+            <div className={styles.foodDetailsMiddleContainer}>
                 <h3>DESCRIPTION</h3>
                 {isEditing ? (
-                    <textarea value={foodDescription} onChange={(e) => setFoodDescription(e.target.value)} />
+                    <textarea
+                        className={styles.textarea}
+                        value={foodDescription}
+                        onChange={(e) => setFoodDescription(e.target.value)}
+                    />
                 ) : (
-                    <p>{foodDescription}</p>
+                    <p className={styles.text}>{foodDescription}</p>
                 )}
                 <h3>INGREDIENTS</h3>
                 {isEditing ? (
-                    <textarea value={foodIngredients} onChange={(e) => setFoodIngredients(e.target.value)} />
+                    <textarea
+                        className={styles.textarea}
+                        value={foodIngredients}
+                        onChange={(e) => setFoodIngredients(e.target.value)}
+                    />
                 ) : (
-                    <p>{foodIngredients}</p>
+                    <p className={styles.text}>{foodIngredients}</p>
                 )}
                 <h3>CALORIES</h3>
                 {isEditing ? (
-                    <input type="number" value={foodCalories} onChange={(e) => setFoodCalories(e.target.value)} />
+                    <input
+                        className={styles.input}
+                        type="number"
+                        value={foodCalories}
+                        onChange={(e) => setFoodCalories(e.target.value)}
+                    />
                 ) : (
-                    <p>{foodCalories}kcal</p>
+                    <p className={styles.text}>{foodCalories}kcal</p>
                 )}
             </div>
-            <div className="food-details-third-container">
+            <div className={styles.foodDetailsThirdContainer}>
                 {isEditing ? (
                     <>
-                        <input type="text" value={foodName} onChange={(e) => setFoodName(e.target.value)} />
-                        <input type="number" value={foodPrice} onChange={(e) => setFoodPrice(e.target.value)} />
+                        <input className={styles.input} type="text" value={foodName} onChange={(e) => setFoodName(e.target.value)} />
+                        <input className={styles.input} type="number" value={foodPrice} onChange={(e) => setFoodPrice(e.target.value)} />
                     </>
                 ) : (
                     <>
@@ -113,7 +126,7 @@ const FoodDetails = () => {
                         <p>${foodPrice}</p>
                     </>
                 )}
-                <div className="food-details-third-container-buttons">
+                <div className={styles.foodDetailsThirdContainerButtons}>
                     {isEditing ? (
                         <>
                             <button onClick={handleSaveClick}>Save</button>
@@ -125,7 +138,6 @@ const FoodDetails = () => {
                             <button>Delete</button>
                         </>
                     )}
-
                 </div>
             </div>
         </div>

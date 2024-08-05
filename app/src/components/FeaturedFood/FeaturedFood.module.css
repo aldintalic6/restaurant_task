@@ -1,4 +1,4 @@
-.featured-recipes-container {
+.featuredRecipesContainer {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
@@ -7,7 +7,7 @@
     background-color: rgb(235, 235, 235);
 }
 
-.text-container {
+.textContainer {
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -18,8 +18,8 @@
 
 }
 
-.text-container p,
-.text-container .styles-link {
+.textContainer p,
+.textContainer .stylesLink {
     margin: 0;
     /* Reset margin */
     padding: 0;
@@ -31,12 +31,12 @@
     font-weight: bold;
 }
 
-.styles-link {
+.stylesLink {
     color: tomato;
 
 }
 
-.food-container {
+.foodContainer {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -47,7 +47,7 @@
     
 }
 
-.food-card {
+.foodCard {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -64,23 +64,23 @@
     
 }
 
-.food-card:hover {
+.foodCard:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     cursor: pointer;
 }
 
-.food-card-header {
+.foodCardHeader {
     position: absolute;
     top: 10px;
     right: 10px;
 }
 
-.fa-heart {
+.faHeart {
     color: tomato;
 }
 
-.food-card-footer {
+.foodCardFooter {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -88,24 +88,24 @@
     width: 100%;
 }
 
-.food-card-text {
+.foodCardText {
     font-size: 20px;
     color: rgb(103, 99, 99);
 
 }
 
-.food-card-footer h3,
-.food-card-footer p {
+.foodCardFooter h3,
+.foodCardFooter p {
     margin: 0;
     padding: 0;
 }
 
-.food-card-price {
+.foodCardPrice {
     font-weight: bold;
     color: #ff6347;
 }
 
-.food-image {
+.foodImage {
     width: 100%;
     height: 200px;
     object-fit: cover;
@@ -114,7 +114,7 @@
 
 }
 
-.restaurant-container {
+.restaurantContainer {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -125,7 +125,7 @@
     
 }
 
-.restaurant-card {
+.restaurantCard {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -142,7 +142,7 @@
     
 }
 
-.restaurant-card:hover {
+.restaurantCard:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     cursor: pointer;
@@ -154,7 +154,7 @@
     right: 10px;
 }
 
-.restaurant-card-footer {
+.restaurantCardFooter {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -162,25 +162,25 @@
     width: 100%;
 }
 
-.restaurant-card-text {
+.restaurantCardText {
     font-size: 20px;
     color: rgb(103, 99, 99);
 
 }
 
-.restaurant-card-footer h3,
-.restaurant-card-footer p {
+.restaurantCardFooter h3,
+.restaurantCardFooter p {
     margin: 0;
     padding: 0;
 }
 
-.restaurant-card-address {
+.restaurantCardAddress {
     font-weight: bold;
     color: #ff6347;
 }
 
 
-.restaurant-image {
+.restaurantImage {
     width: 100%;
     height: 200px;
     object-fit: cover;
@@ -189,7 +189,7 @@
 
 }
 
-.picture-text-container {
+.pictureTextContainer {
     display: flex;
     flex-direction: column;
     justify-content: center; 
@@ -202,7 +202,7 @@
     
 }
 
-.picture-text-container-buttons {
+.pictureTextContainerButtons {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -212,7 +212,7 @@
     margin-left: 50px;
 }
 
-.picture-text-container-buttons-text {
+.pictureTextContainerButtonsText {
     color: rgb(255, 255, 255);
     font-weight: bold;
     font-size: 45px;
@@ -220,14 +220,14 @@
     
 }
 
-.picture-text-container-buttons-smallText {
+.pictureTextContainerButtonsSmallText{
     color: rgb(167, 159, 159);
     font-weight: bold;
     font-size: 20px;
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
-.picture-text-container-login-button {
+.pictureTextContainerLoginButton {
     color: white;
     font-weight: bold;
     font-size: 24px;
@@ -240,7 +240,7 @@
     text-align: center;
 }
 
-.picture-text-container-register-button {
+.pictureTextContainerRegisterButton {
     color: tomato;
     font-weight: bold;
     font-size: 24px;

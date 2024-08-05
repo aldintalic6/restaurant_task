@@ -1,4 +1,4 @@
-.food-details-container {
+.foodDetailsContainer {
     display: flex;
     flex-direction: row;
     flex-grow: 1;
@@ -6,16 +6,16 @@
     padding: 2rem;
     gap: 3rem;
     background-color: rgb(235, 235, 235);
-min-height: 600px;
+    min-height: 600px;
 }
 
-.food-details-image-container {
+.foodDetailsImageContainer {
     display: flex;
     align-items: center;
     height: 100%;
 }
 
-.food-details-image {
+.foodDetailsImage {
     height: 500px;
     width: 700px;
     object-fit: cover;
@@ -23,67 +23,68 @@ min-height: 600px;
 }
 
 @media (max-width: 1440px) {
-    .food-details-image {
+    .foodDetailsImage {
         height: 400px;
-        width: 500px; 
+        width: 500px;
     }
 }
 
-.food-details-middle-container {
+.foodDetailsMiddleContainer {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 1300px; 
-    padding: 1rem; 
+    width: 1300px;
+    padding: 1rem;
     height: 100%;
-    
 }
 
-.food-details-middle-container p {
+.foodDetailsMiddleContainer p {
     font-size: 16px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+        "Lucida Sans", Arial, sans-serif;
     color: rgb(104, 99, 99);
     font-weight: bold;
-    
 }
 
-.food-details-middle-container h3 {
+.foodDetailsMiddleContainer h3 {
     font-size: 22px;
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.food-details-middle-container p, h3 {
+.foodDetailsMiddleContainer p,
+h3 {
     text-align: justify;
 }
 
-.food-details-third-container {
+.foodDetailsThirdContainer {
     display: flex;
     flex-direction: column;
     height: 100%;
     width: 600px;
-    padding: 1rem; 
+    padding: 1rem;
 }
 
-.food-details-third-container p {
+.foodDetailsThirdContainer p {
     text-align: justify;
     font-size: 18px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+        "Lucida Sans", Arial, sans-serif;
     color: rgb(104, 99, 99);
     font-weight: bold;
 }
 
-.food-details-third-container h3 {
+.foodDetailsThirdContainer h3 {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.food-details-third-container-buttons {
+.foodDetailsThirdContainerButtons {
     display: flex;
     gap: 1rem;
     justify-content: flex-start;
     margin-top: 10px;
 }
 
-.food-details-third-container-buttons button:first-child {
+.foodDetailsThirdContainerButtons button:first-child {
     background-color: #459dcc;
     color: white;
     font-weight: bold;
@@ -93,11 +94,11 @@ min-height: 600px;
     width: 65px;
 }
 
-.food-details-third-container-buttons button:first-child:hover {
+.foodDetailsThirdContainerButtons button:first-child:hover {
     background-color: deepskyblue;
 }
 
-.food-details-third-container-buttons button:nth-child(2) {
+.foodDetailsThirdContainerButtons button:nth-child(2) {
     background-color: red;
     padding: 2px;
     color: white;
@@ -108,18 +109,16 @@ min-height: 600px;
     width: 65px;
 }
 
-.food-details-third-container-buttons button:nth-child(2):hover {
+.foodDetailsThirdContainerButtons button:nth-child(2):hover {
     background-color: #fd8d8d;
 }
 
-
-button:focus, button:active {
+button:focus,
+button:active {
     outline: none;
 }
 
-textarea,
-input[type="text"],
-input[type="number"] {
+.textarea {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
@@ -129,20 +128,32 @@ input[type="number"] {
     font-size: 16px;
 }
 
-textarea:focus,
-input[type="text"]:focus,
-input[type="number"]:focus {
+.input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.text {
+    font-size: 16px;
+    color: rgb(104, 99, 99);
+}
+
+.textarea:focus,
+.input:focus {
     outline: none;
     box-shadow: 0 0 5px tomato;
 }
 
-
-textarea:first-of-type {
+.textarea:first-of-type {
     height: 200px;
 }
 
 @media (max-width: 1440px) {
-    textarea:first-of-type {
+    .textarea:first-of-type {
         height: 400px;
     }
 }

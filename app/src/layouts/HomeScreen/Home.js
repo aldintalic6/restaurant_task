@@ -3,7 +3,6 @@ import './App.css';
 
 import RestaurantList from '../../RestaurantList';
 import AddRestaurant from '../../AddRestaurant';
-import FoodList from '../../FoodList';
 import AddFood from '../../AddFood';
 import RandomFood from '../../components/RandomFood/RandomFood';
 import FeaturedRecipes from "../../components/FeaturedFood/FeaturedFood";

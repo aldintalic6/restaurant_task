@@ -2,9 +2,9 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-import './FoodList2.css';
+import styles from './FoodList.module.css';
 
-const FoodList2 = () => {
+const FoodList = () => {
     const [category, setCategory] = useState([]);
     const [food, setFood] = useState([]); // contains max. 3 filtered food entries 
     const [allFood, setAllFood] = useState([]); // contains all the food
@@ -62,33 +62,32 @@ const FoodList2 = () => {
     };
 
     return (
-        <div className="foodlist-container">
+        <div className={styles.foodlistContainer}>
             {/* category cards */}
-            <div className="category-container mt-4">
+            <div className={`${styles.categoryContainer} mt-4`}>
                 {category.map(categoryItem => (
                     <div
                         key={categoryItem.id}
-                        className={`category-card ${selectedCategory && selectedCategory.id === categoryItem.id ? 'selected' : ''}`}
+                        className={`${styles.categoryCard} ${selectedCategory && selectedCategory.id === categoryItem.id ? styles.selected : ''}`}
                         onClick={() => handleCategoryClick(categoryItem)}>
-                        <div className="image-text-container">
-                            <img src={`/images/${categoryItem.image}`} alt={categoryItem.name} className="category-image" />
-                            <p className="category-text mt-1">{categoryItem.name}</p>
+                        <div className={styles.imageTextContainer}>
+                            <img src={`/images/${categoryItem.image}`} alt={categoryItem.name} className={styles.categoryImage} />
+                            <p className={`${styles.categoryText} mt-1`}>{categoryItem.name}</p>
                         </div>
-
                     </div>
                 ))}
             </div>
 
             {/* food cards */}
-            <div className="food-container mt-4 mb-4">
+            <div className={`${styles.foodContainer} mt-4 mb-4`}>
                 {food.map(fooditem => (
-                    <Link to={`food/${fooditem.Id}`}>
-                        <div className="food-card">
-                            <i className="fas fa-heart food-card-header"></i>
-                            <img src={`/images/${fooditem.image}`} alt={fooditem.name} className="food-image mb-2" />
-                            <div className="food-card-footer mt-2">
-                                <h3 className="food-card-text">{fooditem.name}</h3>
-                                <p className="food-card-price">${fooditem.price}</p>
+                    <Link to={`/food/${fooditem.Id}`} key={fooditem.Id}>
+                        <div className={styles.foodCard}>
+                            <i className={`fas fa-heart ${styles.faHeart} ${styles.foodCardHeader}`}></i>
+                            <img src={`/images/${fooditem.image}`} alt={fooditem.name} className={`${styles.foodImage} mb-2`} />
+                            <div className={`${styles.foodCardFooter} mt-2`}>
+                                <h3 className={styles.foodCardText}>{fooditem.name}</h3>
+                                <p className={styles.foodCardPrice}>${fooditem.price}</p>
                             </div>
                         </div>
                     </Link>
@@ -98,4 +97,4 @@ const FoodList2 = () => {
     );
 };
 
-export default FoodList2;
+export default FoodList;
