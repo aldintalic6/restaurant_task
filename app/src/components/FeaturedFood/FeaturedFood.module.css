@@ -36,6 +36,11 @@
 
 }
 
+.stylesLink:hover{
+    text-decoration: none;
+    color: rgb(253, 161, 144)
+}
+
 .foodContainer {
     display: flex;
     flex-direction: row;
@@ -45,6 +50,10 @@
     align-items: center;
     gap: 1.5rem;
     
+}
+
+.foodContainer a {
+    text-decoration: none;
 }
 
 .foodCard {
@@ -65,9 +74,10 @@
 }
 
 .foodCard:hover {
-    transform: translateY(-5px);
+    transform: translateY(-4px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     cursor: pointer;
+    background-color: #f8f9fa;
 }
 
 .foodCardHeader {
@@ -91,13 +101,13 @@
 .foodCardText {
     font-size: 20px;
     color: rgb(103, 99, 99);
-
 }
 
 .foodCardFooter h3,
 .foodCardFooter p {
     margin: 0;
     padding: 0;
+    text-decoration: none;
 }
 
 .foodCardPrice {

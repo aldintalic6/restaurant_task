@@ -70,6 +70,10 @@
     align-items: center;
 }
 
+.foodContainer a {
+   text-decoration: none;
+}
+
 /* max. of 4 items per row */
 @media (min-width: 900px) {
     .foodContainer {
@@ -94,7 +98,7 @@
     border-radius: 10px;
     width: 300px;
     height: 320px;
-    padding: 15px;
+    padding: 25px;
     margin: 0 30px;
     position: relative;
     margin-top: 10px;
@@ -104,6 +108,7 @@
     transform: translateY(-5px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     cursor: pointer;
+    background-color: #f8f9fa;
 }
 
 .foodCardHeader {

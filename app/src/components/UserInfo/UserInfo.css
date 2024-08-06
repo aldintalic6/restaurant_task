@@ -1,0 +1,57 @@
+.userInfoMainContainer {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.userContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    height: 500px;
+    padding-top: 10px;
+    border: 2px solid tomato;
+    border-radius: 7px;
+}
+
+.image {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    margin-bottom: 50px;
+}
+
+.informationContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 60%;
+    margin-top: 20px;
+}
+
+.textContainer {
+    font-size: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+}
+
+.answerContainer {
+    font-size: 22px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: black;
+}
+
+@media (max-width: 1440px) {
+    .userInfoMainContainer {
+        padding: 30px;
+    }
+    .userContainer {
+        width: 50%;
+    }
+}

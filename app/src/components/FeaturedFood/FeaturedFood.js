@@ -5,26 +5,14 @@ import { Link } from "react-router-dom";
 import styles from './FeaturedFood.module.css';
 
 const FeaturedRecipes = () => {
-    const [category, setCategory] = useState([]);
     const [food, setFood] = useState([]); // contains max. 3 filtered food entries 
-    const [allFood, setAllFood] = useState([]); // contains all the food
     const [restaurant, setRestaurant] = useState([]);
-    const [selectedCategory, setSelectedCategory] = useState(null);
-
-    // category
-    useEffect(() => {
-        fetch('http://localhost:5001/category')
-            .then(response => response.json())
-            .then(data => setCategory(data))
-            .catch(error => console.error("Error fetching categories ", error));
-    }, []);
 
     // food
     useEffect(() => {
         fetch('http://localhost:5001/food')
             .then(response => response.json())
             .then(data => {
-                setAllFood(data);
                 selectRandomFood(data);
             })
             .catch(error => console.error("Error fetching food ", error));
@@ -66,19 +54,6 @@ const FeaturedRecipes = () => {
         }
 
         setRestaurant(selectedRestaurants);
-    };
-
-    // Handle category click
-    const handleCategoryClick = (category) => {
-        if (selectedCategory && selectedCategory.id === category.id) {
-            setSelectedCategory(null);
-            selectRandomFood(allFood)
-        }
-        else if (category) {
-            setSelectedCategory(category);
-            const filteredFood = allFood.filter(foodItem => foodItem.categoryId === category.id);
-            selectRandomFood(filteredFood);
-        }
     };
 
     return (

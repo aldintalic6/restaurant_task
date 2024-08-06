@@ -27,14 +27,14 @@ const Header = () => {
             console.error('Error during logout:', error);
         });
     };
-    
+
     return(
         <div className={styles.headerContainer}>
             <div className={`${styles.linksContainer} p-5`}>
                 <Link className={styles.links} to="/">Home</Link>
                 <Link className={styles.links} to="/restaurants">Restaurants</Link>
                 <Link className={styles.links} to="/food">Food</Link>
-            </div>
+            </div> 
             {!user && location.pathname !== '/register' && location.pathname !== '/signin' && (
                 <div className={`${styles.signInContainer} p-5 `}>
                     <Link className={styles.signInLink} to="/signin">Sign In</Link>
@@ -43,6 +43,7 @@ const Header = () => {
             {user && location.pathname !== '/register' && location.pathname !== '/signin' && (
                 <div className={`${styles.signInContainer} p-5`}>
                     <button className={styles.signOutLink} onClick={handleLogout}>Logout</button>
+                    <Link className={styles.signOutLink} to="/profile">Profile</Link>
                 </div>
             )}
         </div>
