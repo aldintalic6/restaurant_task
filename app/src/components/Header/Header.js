@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import Cookies from 'js-cookie';
 
 import styles from './Header.module.css';
 

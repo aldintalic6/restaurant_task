@@ -5,6 +5,7 @@
     width: 100%;
     justify-content: center;
     align-items: center;
+    background-color: rgb(235, 235, 235);
 }
 
 .userContainer {
@@ -17,13 +18,62 @@
     padding-top: 10px;
     border: 2px solid tomato;
     border-radius: 7px;
+    background-color:white;
 }
 
 .image {
-    width: 180px;
-    height: 180px;
+    width: 135px;
+    height: 135px;
     object-fit: cover;
     margin-bottom: 50px;
+    border-radius: 60px;
+    border: 2px solid white;
+}
+
+.icon {
+    color: rgb(231, 85, 59);
+}
+
+.icon:hover {
+    color: #fd8d8d;
+    cursor: pointer;
+}
+
+.buttonsContainer {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.saveButton {
+    width: 10%;
+    background-color: #459dcc;
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none
+}
+
+.cancelButton {
+    width: 10%;
+    background-color: red;
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none
+}
+
+.saveButton:hover {
+    background-color: deepskyblue;
+}
+
+.cancelButton:hover {
+    background-color: #fd8d8d;
 }
 
 .informationContainer {
@@ -54,4 +104,18 @@
     .userContainer {
         width: 50%;
     }
+}
+
+.input {
+    border: 1px solid tomato;
+    border-radius: 5px;
+    padding: 5px;
+    padding-left: 10px;
+    font-size: 19px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    width: 40%;
+}
+
+.input:focus {
+    outline: none;
 }
