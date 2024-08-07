@@ -12,7 +12,7 @@ router.get('/', verifyToken, (req, res) => {
     const userId = req.userId;
 
     // finding the user using the id
-    pool.query('SELECT * FROM users WHERE Id = ?', [userId], (err, results) => {
+    pool.query('SELECT * FROM users WHERE id = ?', [userId], (err, results) => {
         if (err) {
             console.error('Error fetching user data: ' + err.stack);
             res.status(500).json({ error: 'Database error' });

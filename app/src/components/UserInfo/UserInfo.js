@@ -10,10 +10,17 @@ const UserInfo = () => {
     const { user, loading } = useUser();
     const [edit, setEdit] = useState(false);
     const [name, setName] = useState('testname');
-    const [username, setUsername] = useState(user.username);
-    const [email, setEmail] = useState(user.email);
+    const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
 
     const navigate = useNavigate();
+
+    useEffect(() => {
+        if (user) {
+            setUsername(user.username);
+            setEmail(user.email);
+        }
+    }, [user]);
 
     const clickToEdit = () => {
         setEdit(true);
@@ -25,12 +32,6 @@ const UserInfo = () => {
 
     const clickToCancel = () => {
         setEdit(false);
-    };
-
-    // waits for the data to fetch from user context, if /update is inserted in route manually
-    if (loading) {
-        console.log('loadingggg');
-        return <p>Loading user data...</p>;
     };
 
     return (

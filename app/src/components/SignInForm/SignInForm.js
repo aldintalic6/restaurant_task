@@ -11,7 +11,7 @@ import'./SignInForm.css';
 const SignInForm = () => {
     const [usernameOrEmail, setUsernameOrEmail] = useState('');
     const [password, setPassword] = useState('');
-    const { fetchUserData } = useUser();
+    const { fetchUserData, user } = useUser();
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -32,6 +32,7 @@ const SignInForm = () => {
                 else {
                     toast.success('Login successful!');
                     fetchUserData();
+                    console.log('user data:', user);
                 }
             })
             .catch(error => {
