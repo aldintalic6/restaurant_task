@@ -7,7 +7,7 @@ import './UserInfo.css';
 import { useUser } from "../../contexts/UserContext";
 
 const UserInfo = () => {
-    const { user } = useUser(); 
+    const { user } = useUser();
     const [edit, setEdit] = useState(false);
     const [name, setName] = useState('testname');
     const [username, setUsername] = useState('');
@@ -25,7 +25,18 @@ const UserInfo = () => {
     };
 
     const clickToSave = () => {
-        setEdit(false);
+        fetch(`http://localhost:5001/user/${user.id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ username, email }),
+        })
+            .then(response => response.json())
+            .then(data => {
+                setEdit(false);
+            })
+            .catch(error => console.error('Error updating user details:', error));
     };
 
     const clickToCancel = () => {
@@ -52,7 +63,7 @@ const UserInfo = () => {
                             type="text"
                             name="name"
                             value={name}
-                            onChange={(e) => setName(e.target.value)} 
+                            onChange={(e) => setName(e.target.value)}
                             className="input"
                         />
                     ) : (
@@ -66,7 +77,7 @@ const UserInfo = () => {
                             type="text"
                             name="username"
                             value={username}
-                            onChange={(e) => setUsername(e.target.value)} 
+                            onChange={(e) => setUsername(e.target.value)}
                             className="input"
                         />
                     ) : (
@@ -80,7 +91,7 @@ const UserInfo = () => {
                             type="email"
                             name="email"
                             value={email}
-                            onChange={(e) => setEmail(e.target.value)} 
+                            onChange={(e) => setEmail(e.target.value)}
                             className="input"
                         />
                     ) : (

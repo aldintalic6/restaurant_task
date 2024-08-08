@@ -26,4 +26,22 @@ router.get('/', verifyToken, (req, res) => {
     })
 });
 
+router.put('/:id', (req, res) => {
+    const { id } = req.params; 
+    const { username, email } = req.body;
+
+    pool.query('UPDATE users SET username = ?, email = ? WHERE id = ?', [username, email, id], (err, result) => {
+        if (err) {
+            console.error('Error executing query: ' + err.stack);
+            res.status(500).json({ error: 'Database error' });
+            return;
+        }
+        if (result.affectedRows === 0) {
+            res.status(404).json({ error: 'User not found' });
+            return;
+        }
+        res.status(200).json({ message: 'User details updated successfully' });
+    });
+});
+
 module.exports = router;

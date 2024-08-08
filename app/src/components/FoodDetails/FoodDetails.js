@@ -14,7 +14,7 @@ const FoodDetails = () => {
     const [categoryId, setCategoryId] = useState(null);
     const [foodCalories, setFoodCalories] = useState(null);
     const [foodImage, setFoodImage] = useState(null);
-    const [isEditing, setIsEditing] = useState(false); // state to toggle edit mode
+    const [isEditing, setIsEditing] = useState(false); 
 
     const { id } = useParams();
 
