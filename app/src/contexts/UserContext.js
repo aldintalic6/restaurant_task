@@ -4,10 +4,9 @@ const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
     const [user, setUser] = useState(null);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(true); // Add loading state
 
     const fetchUserData = () => {
-        setLoading(true); // Set loading to true when fetching starts
         fetch('http://localhost:5001/user', {
             method: 'GET',
             credentials: 'include',
@@ -23,10 +22,12 @@ export const UserProvider = ({ children }) => {
             .catch(error => {
                 console.error('Error fetching user data:', error);
                 setUser(null);
+                
             })
             .finally(() => {
-                setLoading(false); // Set loading to false when fetching is done
+                setLoading(false); // Wrap setLoading(false) in a function
             });
+            
     };
     
 

@@ -7,13 +7,11 @@ import './UserInfo.css';
 import { useUser } from "../../contexts/UserContext";
 
 const UserInfo = () => {
-    const { user, loading } = useUser();
+    const { user } = useUser(); 
     const [edit, setEdit] = useState(false);
     const [name, setName] = useState('testname');
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
-
-    const navigate = useNavigate();
 
     useEffect(() => {
         if (user) {
