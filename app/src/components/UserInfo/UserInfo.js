@@ -12,11 +12,13 @@ const UserInfo = () => {
     const [name, setName] = useState('testname');
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
+    const [image, setImage] = useState(null);
 
     useEffect(() => {
         if (user) {
             setUsername(user.username);
             setEmail(user.email);
+            setImage(user.image);
         }
     }, [user]);
 
@@ -25,12 +27,16 @@ const UserInfo = () => {
     };
 
     const clickToSave = () => {
+        const formData = new FormData();
+        formData.append('username', username);
+        formData.append('email', email);
+        if (image instanceof File) {
+            formData.append('image', image);
+        }
+
         fetch(`http://localhost:5001/user/${user.id}`, {
             method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ username, email }),
+            body: formData,
         })
             .then(response => response.json())
             .then(data => {
@@ -41,12 +47,34 @@ const UserInfo = () => {
 
     const clickToCancel = () => {
         setEdit(false);
+        setUsername(user.username);
+        setEmail(user.email);
+        setImage(user.image);
+    };
+
+    const handleFileChange = (e) => {
+        setImage(e.target.files[0]);
     };
 
     return (
         <div className="userInfoMainContainer">
             <div className="userContainer">
-                <img src="/images/avatar2.jpeg" alt="useravatar" className="image"></img>
+                {edit ? (
+                    <div className="fileContainer">
+                        <input
+                            className="fileStyle"
+                            type="file"
+                            onChange={handleFileChange}
+                            id="fileInput"
+                        />
+                        <label htmlFor="fileInput" className="customFileLabel">
+                            <i className="fas fa-upload"></i> {/* Add the icon here */}
+                        </label>
+                        <p>Click to upload new image</p>
+                    </div>
+                ) : (
+                    <img src={`/images/${image}`} alt={name} className="image"></img>
+                )}
                 {edit ? (
                     <div className="buttonsContainer">
                         <button className="saveButton" onClick={clickToSave}>Save</button>

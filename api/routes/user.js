@@ -3,6 +3,8 @@ const router = express.Router();
 const jwt = require('jsonwebtoken');
 const verifyToken = require('../middleware/jwtProtected');
 const pool = require('../db/connection');
+const upload = require('../middleware/upload');
+const multer = require('multer');
 require('dotenv').config();
 
 // retrieving user from token
@@ -26,11 +28,23 @@ router.get('/', verifyToken, (req, res) => {
     })
 });
 
-router.put('/:id', (req, res) => {
+router.put('/:id', upload.single('image'), (req, res) => {
     const { id } = req.params; 
     const { username, email } = req.body;
+    const image = req.file ? req.file.filename : null;
 
-    pool.query('UPDATE users SET username = ?, email = ? WHERE id = ?', [username, email, id], (err, result) => {
+    let query = 'UPDATE users SET username = ?, email = ?';
+    let params = [username, email];
+
+    if (image) {
+        query = query + ', image = ?';
+        params.push(image);
+    }
+
+    query = query + ' WHERE id = ?';
+    params.push(id);
+
+    pool.query(query, params, (err, result) => {
         if (err) {
             console.error('Error executing query: ' + err.stack);
             res.status(500).json({ error: 'Database error' });
@@ -40,8 +54,9 @@ router.put('/:id', (req, res) => {
             res.status(404).json({ error: 'User not found' });
             return;
         }
-        res.status(200).json({ message: 'User details updated successfully' });
-    });
+        res.status(200).json({ message: 'User updated successfully' });
+    })
+
 });
 
 module.exports = router;
