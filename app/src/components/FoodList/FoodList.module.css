@@ -152,3 +152,8 @@
     font-weight: bold;
     color: #ff6347;
 }
+
+.disabledCard {
+    pointer-events: none;
+    opacity: 0.5;
+}

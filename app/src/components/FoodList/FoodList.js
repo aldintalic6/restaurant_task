@@ -2,9 +2,12 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
+import { useUser } from "../../contexts/UserContext";
+
 import styles from './FoodList.module.css';
 
 const FoodList = () => {
+    const { user } = useUser();
     const [category, setCategory] = useState([]);
     const [food, setFood] = useState([]); // contains max. 3 filtered food entries 
     const [allFood, setAllFood] = useState([]); // contains all the food
@@ -92,6 +95,21 @@ const FoodList = () => {
                         </div>
                     </Link>
                 ))}
+                {/* add food card */}
+                {user ? (
+                    <Link to={`/addfood`}>
+                        <div className={styles.foodCard}>
+                            <img src={`/images/addicon.png`} alt={"addfood"} className={`${styles.foodImage} mb-2`} />
+                            <p className={`${styles.foodCardText} mt-3`}>Click to add food</p>
+                        </div>
+                    </Link>
+                ) : (
+                    <div className={`${styles.foodCard} ${styles.disabledCard}`}>
+                        <img src="/images/addicon.png" alt="addfood" className={`${styles.foodImage} mb-2`} />
+                        <p className={`${styles.foodCardText} mt-3`}>Log in to add food</p>
+                    </div>
+                )
+                }
             </div>
         </div>
     );

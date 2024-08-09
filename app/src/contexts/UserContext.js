@@ -25,7 +25,7 @@ export const UserProvider = ({ children }) => {
                 
             })
             .finally(() => {
-                setLoading(false); // Wrap setLoading(false) in a function
+                setLoading(false); 
             });
             
     };

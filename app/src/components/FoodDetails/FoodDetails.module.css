@@ -118,6 +118,15 @@ button:active {
     outline: none;
 }
 
+.disabledButton {
+    opacity: 0.3;
+}
+
+.disabledButton:hover {
+    cursor: default;
+    opacity: 0.3;
+}
+
 .textarea {
     width: 100%;
     padding: 10px;

@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import { useNavigate } from 'react-router-dom';
 
-import './UserInfo.css';
+import styles from './UserInfo.module.css';
 
 import { useUser } from "../../contexts/UserContext";
 
@@ -57,73 +56,73 @@ const UserInfo = () => {
     };
 
     return (
-        <div className="userInfoMainContainer">
-            <div className="userContainer">
+        <div className={styles.userInfoMainContainer}>
+            <div className={styles.userContainer}>
                 {edit ? (
-                    <div className="fileContainer">
+                    <div className={styles.fileContainer}>
                         <input
-                            className="fileStyle"
+                            className={styles.fileStyle}
                             type="file"
                             onChange={handleFileChange}
                             id="fileInput"
                         />
-                        <label htmlFor="fileInput" className="customFileLabel">
+                        <label htmlFor="fileInput" className={styles.customFileLabel}>
                             <i className="fas fa-upload"></i> {/* Add the icon here */}
                         </label>
                         <p>Click to upload new image</p>
                     </div>
                 ) : (
-                    <img src={`/images/${image}`} alt={name} className="image"></img>
+                    <img src={`/images/${image}`} alt={name} className={styles.image}></img>
                 )}
                 {edit ? (
-                    <div className="buttonsContainer">
-                        <button className="saveButton" onClick={clickToSave}>Save</button>
-                        <button className="cancelButton" onClick={clickToCancel}>Cancel</button>
+                    <div className={styles.buttonsContainer}>
+                        <button className={styles.saveButton} onClick={clickToSave}>Save</button>
+                        <button className={styles.cancelButton} onClick={clickToCancel}>Cancel</button>
                     </div>
                 ) : (
-                    <i className="fas fa-edit icon" onClick={clickToEdit}></i>
+                    <i className={`fas fa-edit ${styles.icon}`} onClick={clickToEdit}></i>
                 )
                 }
-                <div className="informationContainer">
-                    <p className="textContainer">Name</p>
+                <div className={styles.informationContainer}>
+                    <p className={styles.textContainer}>Name</p>
                     {edit ? (
                         <input
                             type="text"
                             name="name"
                             value={name}
                             onChange={(e) => setName(e.target.value)}
-                            className="input"
+                            className={styles.input}
                         />
                     ) : (
-                        <p className="answerContainer">{name}</p>)
+                        <p className={styles.answerContainer}>{name}</p>)
                     }
                 </div>
-                <div className="informationContainer">
-                    <p className="textContainer">Username</p>
+                <div className={styles.informationContainer}>
+                    <p className={styles.textContainer}>Username</p>
                     {edit ? (
                         <input
                             type="text"
                             name="username"
                             value={username}
                             onChange={(e) => setUsername(e.target.value)}
-                            className="input"
+                            className={styles.input}
                         />
                     ) : (
-                        <p className="answerContainer">{username}</p>)
+                        <p className={styles.answerContainer}>{username}</p>)
                     }
                 </div>
-                <div className="informationContainer">
-                    <p className="textContainer">Email</p>
+                <div className={styles.informationContainer}>
+                    <p className={styles.textContainer}>Email</p>
                     {edit ? (
                         <input
                             type="email"
                             name="email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
-                            className="input"
+                            className={styles.input}
                         />
                     ) : (
-                        <p className="answerContainer">{email}</p>)
+                        <p className={styles.answerContainer}>{email}</p>)
                     }
                 </div>
             </div>

@@ -1,11 +1,15 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { Bounce, ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+import { useUser } from "../../contexts/UserContext";
 
 import styles from './FoodDetails.module.css';
 
 const FoodDetails = () => {
-
+    const { user } = useUser();
     const [foodName, setFoodName] = useState('');
     const [foodPrice, setFoodPrice] = useState('');
     const [foodDescription, setFoodDescription] = useState('');
@@ -14,7 +18,7 @@ const FoodDetails = () => {
     const [categoryId, setCategoryId] = useState(null);
     const [foodCalories, setFoodCalories] = useState(null);
     const [foodImage, setFoodImage] = useState(null);
-    const [isEditing, setIsEditing] = useState(false); 
+    const [isEditing, setIsEditing] = useState(false);
 
     const { id } = useParams();
 
@@ -72,6 +76,22 @@ const FoodDetails = () => {
         setFoodImage(e.target.files[0]);
     };
 
+    const displayEditMessage = () => {
+        toast.warn('Log in to edit food!', {
+            theme: 'light',
+            closeOnClick: true,
+            pauseOnHover: false,
+        });
+    };
+
+    const displayDeleteMessage = () => {
+        toast.warn('Log in to delete food!', {
+            theme: 'light',
+            closeOnClick: true,
+            pauseOnHover: false,
+        });
+    };
+
     return (
         <div className={styles.foodDetailsContainer}>
             <div className={`${styles.foodDetailsImageContainer} ml-3`}>
@@ -127,19 +147,29 @@ const FoodDetails = () => {
                     </>
                 )}
                 <div className={styles.foodDetailsThirdContainerButtons}>
-                    {isEditing ? (
+                    {isEditing ? ( 
                         <>
                             <button onClick={handleSaveClick}>Save</button>
                             <button onClick={handleCancelClick}>Cancel</button>
                         </>
                     ) : (
                         <>
-                            <button onClick={handleEditClick}>Edit</button>
-                            <button>Delete</button>
+                            {user ? ( // if isEditing = false and user logged in
+                                <>
+                                    <button onClick={handleEditClick}>Edit</button>
+                                    <button>Delete</button>
+                                </>
+                            ) : (   // if isEditing = false and user not logged in
+                                <> 
+                                    <button onClick={displayEditMessage} className={styles.disabledButton}>Edit</button> 
+                                    <button onClick={displayDeleteMessage} className={styles.disabledButton}>Delete</button>
+                                </>
+                            )}
                         </>
                     )}
                 </div>
             </div>
+            <ToastContainer />
         </div>
     );
 };
