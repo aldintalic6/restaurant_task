@@ -1,0 +1,86 @@
+.addFoodComponentContainer {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(240, 235, 235);
+}
+
+.firstCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: white;
+    height: 500px;
+}
+
+.cardHeader {
+    display: flex;
+    justify-content: flex-start;
+    border-bottom: 1px solid black;
+}
+
+.cardHeader p{
+   font-size: 18px;
+   font-weight: bold;
+   font-family: Arial, Helvetica, sans-serif;
+}
+
+.cardBody {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+}
+
+.multipleInputsContainer {
+    display: flex;
+    gap: 0.7rem;
+}
+
+.bigInputContainers {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.input {
+    border-radius: 5px;
+    border: 1px solid rgb(148, 147, 147);
+    padding-left: 6px;
+    padding-right: 6px;    
+}
+
+.inputPrice {
+    border-radius: 5px;
+    border: 1px solid rgb(148, 147, 147);
+    padding-left: 6px;
+    padding-right: 6px;    
+    width: 20%;
+
+}
+
+.textArea {
+    height: 120px;
+    padding-left: 5px;
+    resize: none;
+}
+
+.cardFooter button {
+    border: none;
+    padding: 3px;
+    background-color: tomato;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    border-radius: 3px;
+}
+
+@media (max-width: 1440px) {
+    .addFoodComponentContainer {
+        padding: 30px;
+    }
+   
+}

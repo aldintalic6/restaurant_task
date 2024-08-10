@@ -34,20 +34,22 @@ router.get('/:id', (req, res) => {
         }
         res.json(rows[0]);
     });
-}); 
+});
 
 // add food
 
 router.post('/', (req, res) => {
-    const { name, price, restaurantId } = req.body;
-    pool.query('INSERT INTO food (name, price, restaurantId) VALUES (?, ?, ?)', [name, price, restaurantId], (err, result) => {
-        if (err) {
-            console.error('Error executing query: ' + err.stack);
-            res.status(500).json({ error: 'Database error' });
-            return;
-        }
-        res.status(201).json({ message: 'Restaurant added successfully', restaurant: { id: result.insertId, name, address, telephone } });
-    });
+    const { name, price, restaurantId, categoryId, calories, description, ingredients } = req.body;
+    pool.query('INSERT INTO food (name, price, restaurantId, categoryId, calories, description, ingredients) VALUES (?, ?, ?, ?, ?, ?, ?)',
+        [name, price, restaurantId, categoryId, calories, description, ingredients],
+        (err, result) => {
+            if (err) {
+                console.error('Error executing query: ' + err.stack);
+                res.status(500).json({ error: 'Database error' });
+                return;
+            }
+            res.status(201).json({ message: 'Food added successfully', food: { id: result.insertId } });
+        });
 });
 
 // edit food

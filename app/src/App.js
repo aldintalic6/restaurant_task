@@ -7,6 +7,7 @@ import SignIn from './layouts/SignInPage/SignIn';
 import FoodScreen from './layouts/FoodScreen/FoodScreen';
 import SingleFood from './layouts/SingleFoodScreen/SingleFood';
 import ProfileScreen from './layouts/ProfileScreen/ProfileScreen';
+import AddFood from './layouts/AddFoodScreen/AddFood';
 
 import ProtectedRoute from './components/ProtectedRoute';
 
@@ -23,6 +24,7 @@ function App() {
         <Route path="/food" element={<FoodScreen />} />
         <Route path="/food/:id" element={<SingleFood />} />
         <Route path="/profile" element={<ProtectedRoute element={<ProfileScreen />} />} />
+        <Route path="/food/add" element={<AddFood />} />
       </Routes>
     </Router>
   );
