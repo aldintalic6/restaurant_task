@@ -97,7 +97,7 @@ const FoodList = () => {
                 ))}
                 {/* add food card */}
                 {user ? (
-                    <Link to={`/addfood`}>
+                    <Link to={`/food/add`}>
                         <div className={styles.foodCard}>
                             <img src={`/images/addicon.png`} alt={"addfood"} className={`${styles.foodImage} mb-2`} />
                             <p className={`${styles.foodCardText} mt-3`}>Click to add food</p>

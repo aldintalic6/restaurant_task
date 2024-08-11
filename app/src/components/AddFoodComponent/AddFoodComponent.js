@@ -1,6 +1,9 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 
+import { Bounce, ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import './AddFoodComponent.css';
 
 const AddFoodComponent = () => {
@@ -31,14 +34,31 @@ const AddFoodComponent = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        const formData = new FormData();
+        formData.append('name', name);
+        formData.append('price', price);
+        formData.append('restaurantId', restaurantId);
+        formData.append('categoryId', categoryId);
+        formData.append('calories', calories);
+        formData.append('description', description);
+        formData.append('ingredients', ingredients);
+        if (image instanceof File) {
+            formData.append('image', image);
+        }
         fetch('http://localhost:5001/food', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ name, price, restaurantId, categoryId, calories, description, ingredients }),
+            body: formData,
         })
             .then(response => response.json())
+            .then(data => {
+                setName('');
+                setPrice('');
+                setRestaurantId('');
+                setCategoryId('');
+                setCalories('');
+                setDescription('');
+                setIngredients('');
+            })
             .catch(error => {
                 console.error('Error adding food:', error);
             });
@@ -55,7 +75,7 @@ const AddFoodComponent = () => {
                         <div className="multipleInputsContainer">
                             <input
                                 type="text"
-                                placeholder="Name"
+                                placeholder="Name:"
                                 value={name}
                                 onChange={(e) => setName(e.target.value)}
                                 className="input"
@@ -79,43 +99,64 @@ const AddFoodComponent = () => {
                             </select>
                             <input
                                 type="number"
-                                placeholder="Calories"
+                                placeholder="Calories:"
                                 value={calories}
                                 onChange={(e) => setCalories(e.target.value)}
                                 className="input"
                                 required
                             />
                         </div>
-                        <div className="bigInputContainers">
+                        <div className="bigInputContainers mt-3">
                             <textarea
                                 className="textArea"
-                                placeholder="Description"
+                                placeholder="Description:"
                                 value={description}
                                 onChange={(e) => setDescription(e.target.value)}
                                 required
                             />
                             <textarea
                                 className="textArea"
-                                placeholder="Ingredients"
+                                placeholder="Ingredients:"
                                 value={ingredients}
                                 onChange={(e) => setIngredients(e.target.value)}
                                 required
                             />
                         </div>
                         <input
-                                type="number"
-                                placeholder="Price"
-                                value={price}
-                                onChange={(e) => setPrice(e.target.value)}
-                                className="inputPrice"
+                            type="number"
+                            placeholder="Price:"
+                            value={price}
+                            onChange={(e) => setPrice(e.target.value)}
+                            className="inputPrice"
+                            required
+                        />
+                        <div className="fileContainer">
+                            <input
+                                type="file"
+                                onChange={(e) => setImage(e.target.files[0])}
+                                className="file"
+                                id="fileInput"
                                 required
                             />
+                            {image ? (
+                                <label htmlFor="fileInput" className="fileUploaded">
+                                    <i className="fas fa-check-circle"></i>
+                                    <p>Image uploaded successfully</p>
+                                </label>
+                            ) : (
+                                <label htmlFor="fileInput" className="customFileLabel">
+                                    <i className="fas fa-upload"></i>
+                                    <p>Click to upload new image</p>
+                                </label>
+                            )}
+                        </div>
                     </div>
                     <div className="cardFooter">
                         <button>Add Food</button>
                     </div>
                 </div>
             </form>
+            <ToastContainer />
         </div>
     );
 };

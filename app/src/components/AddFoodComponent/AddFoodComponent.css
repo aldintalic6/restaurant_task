@@ -1,31 +1,39 @@
 .addFoodComponentContainer {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-grow: 1;
     justify-content: center;
     align-items: center;
-    background-color: rgb(240, 235, 235);
+    background-image: url('/Users/aldintalic/restaurant_task/app/public/images/whitefood.jpeg');
+    background-size: cover; 
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .firstCard {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 20px;
-    background-color: white;
-    height: 500px;
+    padding: 25px;
+    background-color: transparent;
+    border-radius: 5px;
+    height: 550px;
+    width: 1200px;
+    background-color: rgb(249, 245, 245);
+    border-radius: 10px;
 }
 
 .cardHeader {
     display: flex;
     justify-content: flex-start;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid tomato;
 }
 
 .cardHeader p{
    font-size: 18px;
    font-weight: bold;
    font-family: Arial, Helvetica, sans-serif;
+   color: tomato;
 }
 
 .cardBody {
@@ -37,35 +45,115 @@
 
 .multipleInputsContainer {
     display: flex;
-    gap: 0.7rem;
+    justify-content: space-evenly;
 }
 
 .bigInputContainers {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.5rem;
 }
 
 .input {
-    border-radius: 5px;
-    border: 1px solid rgb(148, 147, 147);
+    border: 1px solid tomato;
     padding-left: 6px;
     padding-right: 6px;    
+    background-color: transparent;
+    color: tomato;
+    border: none;
+    border-bottom: 1px solid tomato;
+    
+}
+
+.input::placeholder {
+    color: tomato; 
+}
+
+.input:focus {
+    outline: none; 
+    border-bottom: 1px solid tomato;
 }
 
 .inputPrice {
-    border-radius: 5px;
-    border: 1px solid rgb(148, 147, 147);
+    border: 1px solid tomato;
     padding-left: 6px;
     padding-right: 6px;    
-    width: 20%;
+    background-color: transparent;
+    color: tomato;
+    border: none;
+    border-bottom: 1px solid tomato;
+    width: 10%;
+   
+}
 
+.inputPrice::placeholder {
+    color: tomato;
 }
 
 .textArea {
+    background-color: transparent;
     height: 120px;
-    padding-left: 5px;
+    padding-left: 7px;
     resize: none;
+    border: 1px solid tomato;
+    color: tomato;
+    border-radius: 5px;
+}
+
+.textArea::placeholder {
+    color: tomato; 
+}
+
+.fileContainer {
+    border-bottom: 1px solid tomato;
+}
+
+.file {
+    display: none;
+}
+
+/* after image upload */
+
+.fileUploaded {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.5rem;
+    color: green; 
+}
+
+.fileUploaded:hover {
+    color: rgb(5, 88, 5); 
+    cursor: pointer;
+}
+
+.fileUploaded p{
+    margin: 0px;
+    padding: 0px;
+}
+
+.fileUploaded i {
+    color: green; 
+}
+
+/* before image upload */
+
+.customFileLabel {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.5rem;
+    color: tomato;
+}
+
+.customFileLabel p{
+    margin: 0px;
+    padding: 0px;
+}
+
+.customFileLabel:hover{
+    color: rgb(206, 51, 24);
+    cursor: pointer;
 }
 
 .cardFooter button {
@@ -81,6 +169,8 @@
 @media (max-width: 1440px) {
     .addFoodComponentContainer {
         padding: 30px;
+        
     }
    
 }
+

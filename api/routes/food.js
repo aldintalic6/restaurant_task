@@ -37,11 +37,14 @@ router.get('/:id', (req, res) => {
 });
 
 // add food
+// all data needed to add food, so no need to dynamically build sql query
 
-router.post('/', (req, res) => {
+router.post('/', upload.single('image'), (req, res) => {
     const { name, price, restaurantId, categoryId, calories, description, ingredients } = req.body;
-    pool.query('INSERT INTO food (name, price, restaurantId, categoryId, calories, description, ingredients) VALUES (?, ?, ?, ?, ?, ?, ?)',
-        [name, price, restaurantId, categoryId, calories, description, ingredients],
+    const image = req.file.filename;
+
+    pool.query('INSERT INTO food (name, price, restaurantId, categoryId, image, calories, description, ingredients) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
+        [name, price, restaurantId, categoryId, image, calories, description, ingredients],
         (err, result) => {
             if (err) {
                 console.error('Error executing query: ' + err.stack);
