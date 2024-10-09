@@ -1,5 +1,4 @@
 # Restaurant and Food Recommendation Site
-
 ## Overview
 This site is a platform made to provide users with personalized food and restaurant recommendations.
 
@@ -13,4 +12,4 @@ The website also supports user authentication, allowing individuals to register 
 - **Backend:** **Node.js** with the **Express** framework. 
 - **Database:** Utilizes **MySQL**. 
 
-**This project is currently in development and is continuously evolving to incorporate user feedback and new features. Your insights and suggestions are invaluable as we strive to refine and enhance the platform.**
+**This project is currently in development and is continuously evolving.**
